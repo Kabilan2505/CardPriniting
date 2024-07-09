@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.card.printing.app.cardprinting.LoginController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
-
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#handleLoginButtonAction()"/>
-</VBox>
+<BorderPane fx:id="borderpane" prefHeight="665.0" prefWidth="779.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.HelloController">
+    <top>
+        <VBox prefHeight="130" style="-fx-background-color: #1f4380;" xmlns:fx="http://javafx.com/fxml/1">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <children>
+                <ImageView fx:id="headerImage" />
+            </children>
+        </VBox>
+    </top>
+<!--    <left>-->
+<!--        <VBox prefWidth="250" spacing="10" style="-fx-background-color: #ADD8E6;" xmlns:fx="http://javafx.com/fxml/1">-->
+<!--            <padding>-->
+<!--                <Insets bottom="20" left="20" right="20" top="20" />-->
+<!--            </padding>-->
+<!--            <children>-->
+<!--                <Button fx:id="batchButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Batch" />-->
+<!--                <Button fx:id="onDemandButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="On Demand" />-->
+<!--                <Button fx:id="qualityButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Quality" />-->
+<!--                <Button fx:id="reportButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Report" />-->
+<!--            </children>-->
+<!--        </VBox>-->
+<!--    </left>-->
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutY="62.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
+                    <children>
+                        <Button fx:id="batchButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="Batch" textFill="#f8f8f8">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow />
+                            </effect>
+                        </Button>
+                        <Button fx:id="onDemandButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="OnDemand" textFill="#f8f8f8">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow />
+                            </effect>
+                        </Button>
+                        <Button fx:id="qualityButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="Quality" textFill="#f8f8f8">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow />
+                            </effect>
+                        </Button>
+                        <Button fx:id="reportsButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="Reports" textFill="#f8f8f8">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow />
+                            </effect>
+                        </Button>
+                    </children></VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center >
+        <VBox prefHeight="405.0" prefWidth="577.0">
+            <Label fx:id="contentLabel" style="-fx-font-size: 16px;" />
+        </VBox>
+    </center>
+    <bottom>
+        <VBox fx:id="vbox" prefHeight="130" style="-fx-background-color: #D3D3D3;" xmlns:fx="http://javafx.com/fxml/1">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <children>
+                <Label text="Footer" />
+            </children>
+        </VBox>
+    </bottom>
+</BorderPane>

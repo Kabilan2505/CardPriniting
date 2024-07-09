@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.LoginController">
+<BorderPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.LoginController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="361.0" style="-fx-background-color: #333399;" BorderPane.alignment="CENTER" />
    </left>
@@ -15,9 +15,9 @@
                <children>
                   <Pane layoutX="71.0" layoutY="108.0" prefHeight="303.0" prefWidth="289.0">
                      <children>
-                        <TextField fx:id="usernameField" layoutX="5.0" layoutY="84.0" prefHeight="35.0" prefWidth="245.0" promptText="username" text="kabilan25" />
-                        <PasswordField fx:id="passwordField" layoutX="5.0" layoutY="161.0" prefHeight="35.0" prefWidth="245.0" promptText="password" text="Admin@12345" />
-                        <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #333399;" text="Sign in" textFill="#eeecec" />
+                        <TextField fx:id="usernameField" layoutX="5.0" layoutY="84.0" prefHeight="35.0" prefWidth="245.0" promptText="username" text="kabilan25"/>
+                        <PasswordField fx:id="passwordField" layoutX="5.0" layoutY="161.0" prefHeight="35.0" prefWidth="245.0" promptText="password" text="Admin@12345"/>
+                        <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #333399;" text="Sign in" textFill="#eeecec" onAction="#handleLoginButtonAction" />
                         <Label layoutX="5.0" layoutY="9.0" prefHeight="31.0" prefWidth="81.0" text="Sign in">
                            <font>
                               <Font name="System Bold" size="21.0" />
