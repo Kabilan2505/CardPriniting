@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="365.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.LoginController">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+<!--    <Vgap>10</Vgap>-->
+<!--    <Hgap>10</Hgap>-->
+    <vgap>10</vgap>
+    <hgap>10</hgap>
+
+    <Label text="Username:" />
+    <TextField fx:id="usernameField" GridPane.columnIndex="1" />
+
+    <Label prefHeight="17.0" prefWidth="75.0" text="Password:" GridPane.rowIndex="1" />
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+    <Button onAction="#handleLoginButtonAction" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <Pane prefHeight="29.0" prefWidth="97.0" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

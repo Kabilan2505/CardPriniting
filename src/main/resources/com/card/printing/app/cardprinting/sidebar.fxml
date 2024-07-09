@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane stylesheets="@Style.css" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.SidebarController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutX="132.0" layoutY="28.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox layoutX="1.0" layoutY="35.0" prefHeight="55.0" prefWidth="570.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                            <children>
+                                <Button fx:id="batchButton" onMouseClicked="#batch" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: white;" styleClass="menuItem" text="Batch">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font></Button>
+                                <Button fx:id="onDemandButton" onMouseClicked="#onDemand" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: white;" styleClass="menuItem" text="OnDemand">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font></Button>
+                                <Button onMouseClicked="#quality" fx:id="qualityButton" layoutX="150.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: white ;" styleClass="menuItem" text="Quality">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font></Button>
+                                <Button onMouseClicked="#reports" fx:id="reportsButton" layoutX="290.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: white;" styleClass="menuItem" text="Reports">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font></Button>
+                            </children></HBox>
+                        <Label layoutX="23.0" layoutY="38.0" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: White;" text="MENU">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                            <graphic>
+                                <!--                        <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">-->
+                                <!--                           <Image url="@/Image/menu1.png" />-->
+                                <!--                        <effect>-->
+                                <!--                           <DropShadow />-->
+                                <!--                        </effect>-->
+                                <!--                        </ImageView>-->
+                            </graphic>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </top>
+            <left>
+                <AnchorPane prefHeight="400.0" prefWidth="230.0" style="-fx-background-color: #333399;" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox layoutY="62.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #333399;" styleClass="sideBarItem" text="Batch" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #333399;" styleClass="sideBarItem" text="OnDemand" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #333399;" styleClass="sideBarItem" text="Quality" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #333399;" styleClass="sideBarItem" text="Reports" textFill="#f8f8f8">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                    <effect>
+                                        <Glow />
+                                    </effect>
+                                </Button>
+                            </children></VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+        </BorderPane>
+    </children>
+</AnchorPane>
