@@ -52,6 +52,7 @@ public class HelloController {
                 Image image = new Image(inputStream);
                 headerImage.setImage(image);
                 inputStream.close();
+                handleBatchButton();
             } catch (IOException e) {
                 System.out.println("Image file not found.");
             }
@@ -60,6 +61,14 @@ public class HelloController {
         @FXML
         private void handleButtonClick(ActionEvent event) {
             Button clickedButton = (Button) event.getSource();
+
+            // Clear active class from all buttons
+            batchButton.getStyleClass().remove("active");
+            onDemandButton.getStyleClass().remove("active");
+            qualityButton.getStyleClass().remove("active");
+
+            // Add active class to the clicked button
+            clickedButton.getStyleClass().add("active");
             switch (clickedButton.getId()) {
                 case "batchButton":
                     handleBatchButton();
@@ -94,7 +103,7 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("batch.fxml"));
             Parent root = loader.load();
             setCenterContent(root);
-            System.out.println(root);
+            System.out.println("batch");
 
             // Create a new stage for the batch view
 
@@ -114,7 +123,7 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("onDemand.fxml"));
             Parent root = loader.load();
             setCenterContent(root);
-            System.out.println(root);
+            System.out.println("Demand");
 
             // Create a new stage for the batch view
 
@@ -132,7 +141,7 @@ public class HelloController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("quality.fxml"));
                 Parent root = loader.load();
                 setCenterContent(root);
-                System.out.println(root);
+                System.out.println("quality");
 
                 // Create a new stage for the batch view
 

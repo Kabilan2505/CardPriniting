@@ -4,10 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FileChooserController {
 
@@ -21,27 +25,34 @@ public class FileChooserController {
      * select single pdf file
      */
     public void Button1Action(ActionEvent event) {
-        FileChooser fc = new FileChooser();
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Folder");
 
-        // Set the initial directory to a specific folder
+        // Optional: Set the initial directory
         File initialDirectory = new File("E:\\CardPrinting"); // Change to your desired folder
         if (initialDirectory.exists() && initialDirectory.isDirectory()) {
-            fc.setInitialDirectory(initialDirectory);
+            directoryChooser.setInitialDirectory(initialDirectory);
         }
 
-        // Set file extension filter for zip files
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Zip Files", "*.zip"));
+        // Show the open dialog to select a folder
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        File selectedDirectory = directoryChooser.showDialog(stage);
 
-        // Show the open dialog
-        File selectedFile = fc.showOpenDialog(null);
+        if (selectedDirectory != null && selectedDirectory.isDirectory()) {
+            // Filter for zip files in the selected directory
+            List<File> zipFiles = Arrays.stream(selectedDirectory.listFiles())
+                    .filter(file -> file.isFile() && file.getName().endsWith(".zip"))
+                    .collect(Collectors.toList());
 
-        if (selectedFile != null) {
-            listview.getItems().add(selectedFile.getAbsolutePath());
+            if (!zipFiles.isEmpty()) {
+                zipFiles.forEach(file -> listview.getItems().add(file.getAbsolutePath()));
+            } else {
+                System.out.println("No zip files found in the selected directory!");
+            }
         } else {
-            System.out.println("File is not valid!");
+            System.out.println("Selected directory is not valid!");
         }
     }
-
 
     /**
      * Select multiple files

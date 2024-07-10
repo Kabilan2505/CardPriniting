@@ -46,17 +46,11 @@ public class LoginController {
             // Load the new FXML file
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-                Parent sidebarRoot = loader.load();
+                BorderPane helloRoot = loader.load();
 
-
-                // Create a new stage for the sidebar
-                Stage sidebarStage = new Stage();
-                sidebarStage.setScene(new Scene(sidebarRoot));
-                sidebarStage.show();
-
-                // Optionally, close the login window
-//                Stage loginStage = (Stage) rootPane.getScene().getWindow();
-//                loginStage.close();
+                // Get the current scene and set its root to the loaded BorderPane
+                Scene currentScene = usernameField.getScene();
+                currentScene.setRoot(helloRoot);
 
             } catch (IOException e) {
                 e.printStackTrace();
