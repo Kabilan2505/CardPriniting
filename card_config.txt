@@ -1,0 +1,3 @@
+resourcePath = D:/Suthan/Zebra/card/input_new/batch_1.zip
+outputPath = D:/Suthan/Zebra/card/output
+basePath = D:/Suthan/Zebra/card/output

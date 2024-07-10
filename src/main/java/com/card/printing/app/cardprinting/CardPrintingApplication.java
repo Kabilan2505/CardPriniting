@@ -21,7 +21,7 @@ public class CardPrintingApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void javaFx(String[] args) {
         launch();
     }
 }
