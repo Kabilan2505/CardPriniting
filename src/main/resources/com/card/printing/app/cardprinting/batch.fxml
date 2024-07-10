@@ -2,19 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="730.0" style="-fx-background-color: #336699;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.SidebarController">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
+<AnchorPane prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.FileChooserController">
     <children>
-        <Label layoutX="327.0" layoutY="177.0" text="Batch">
-            <font>
-                <Font size="32.0" />
-            </font>
-        </Label>
+        <Button fx:id="btn1" layoutX="108.0" layoutY="82.0" mnemonicParsing="false" onAction="#Button1Action" text="Select One File" />
+        <Button fx:id="btn2" layoutX="108.0" layoutY="175.0" mnemonicParsing="false" onAction="#Button2Action" text="Select Multi Files" />
+        <ListView fx:id="listview" layoutX="259.0" layoutY="32.0" prefHeight="342.0" prefWidth="619.0" />
     </children>
-
-    <stylesheets>
-
-    </stylesheets>
 </AnchorPane>

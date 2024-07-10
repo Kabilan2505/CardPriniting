@@ -60,20 +60,20 @@
                                 <Glow />
                             </effect>
                         </Button>
-                        <Button fx:id="reportsButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="Reports" textFill="#f8f8f8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                            <effect>
-                                <Glow />
-                            </effect>
-                        </Button>
+<!--                        <Button fx:id="reportsButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" styleClass="sideBarItem" text="Reports" textFill="#f8f8f8">-->
+<!--                            <font>-->
+<!--                                <Font name="System Bold" size="20.0" />-->
+<!--                            </font>-->
+<!--                            <effect>-->
+<!--                                <Glow />-->
+<!--                            </effect>-->
+<!--                        </Button>-->
                     </children></VBox>
             </children>
         </AnchorPane>
     </left>
     <center >
-        <VBox prefHeight="405.0" prefWidth="577.0">
+        <VBox fx:id="vBox" prefHeight="405.0" prefWidth="577.0">
             <Label fx:id="contentLabel" style="-fx-font-size: 16px;" />
         </VBox>
     </center>
