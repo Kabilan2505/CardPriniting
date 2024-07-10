@@ -24,7 +24,7 @@ public class FileChooserController {
         FileChooser fc = new FileChooser();
 
         // Set the initial directory to a specific folder
-        File initialDirectory = new File("D:\\CardPrinting"); // Change to your desired folder
+        File initialDirectory = new File("E:\\CardPrinting"); // Change to your desired folder
         if (initialDirectory.exists() && initialDirectory.isDirectory()) {
             fc.setInitialDirectory(initialDirectory);
         }
