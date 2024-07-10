@@ -5,10 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,14 +31,22 @@ public class LoginController {
     private BorderPane borderPane;
 
     @FXML
-    public void initialize() {
-
-    }
-
-
+    private ImageView loginImage;
 
     @FXML
-    private void handleLoginButtonAction() {
+    public void initialize() {
+        try {
+            FileInputStream inputStream = new FileInputStream("src/main/resources/image/logo.png");
+            Image image = new Image(inputStream);
+            loginImage.setImage(image);
+            inputStream.close();
+        } catch (IOException e) {
+            System.out.println("Image file not found.");
+        }
+    }
+
+    @FXML
+    private void handleLoginButtonAction() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
         System.out.println(username + password);
@@ -44,17 +55,27 @@ public class LoginController {
             showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, " + username + "!");
 
             // Load the new FXML file
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-                BorderPane helloRoot = loader.load();
 
-                // Get the current scene and set its root to the loaded BorderPane
-                Scene currentScene = usernameField.getScene();
-                currentScene.setRoot(helloRoot);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            BorderPane sidebarRoot = loader.load();
+            Scene currentScene = usernameField.getScene();
+            currentScene.setRoot(sidebarRoot);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//                CardPrintingApplication c = new CardPrintingApplication();
+//                c.switchToMainScene();
+
+
+              /*  // Create a new stage for the sidebar
+                Stage sidebarStage = new Stage();
+                sidebarStage.setScene(new Scene(sidebarRoot));
+                sidebarStage.show();*/
+
+
+            // Optionally, close the login window
+//                Stage loginStage = (Stage) rootPane.getScene().getWindow();
+//                loginStage.close();
+
+
         } else {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
         }

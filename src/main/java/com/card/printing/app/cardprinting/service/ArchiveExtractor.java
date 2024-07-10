@@ -105,6 +105,7 @@ public class ArchiveExtractor {
 
     private void decryptPCN(File file){
         try{
+            System.out.println(file);
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = reader.readLine();
             String[] diltSimpleAfter = line.split("~");

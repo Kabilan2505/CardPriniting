@@ -21,7 +21,7 @@ public class FileListController{
 
     public void initialize() {
         // Specify the folder path
-        String folderPath = "E:\\CardPrinting";
+        String folderPath = "D:\\CardPrinting";
 
         // Read files from the specified folder
         File folder = new File(folderPath);
@@ -51,7 +51,7 @@ public class FileListController{
 
             // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
-            archive.extract(selectedPath, "E:/output");// Adjust the output path as needed
+            archive.extract(selectedPath, "D:/output");// Adjust the output path as needed
 
         }
 
