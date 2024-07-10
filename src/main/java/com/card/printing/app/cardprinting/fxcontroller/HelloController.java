@@ -1,11 +1,10 @@
-package com.card.printing.app.cardprinting;
+package com.card.printing.app.cardprinting.fxcontroller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,68 +17,78 @@ import java.io.IOException;
 
 public class HelloController {
 
-        @FXML
-        private BorderPane borderpane;
+    @FXML
+    private BorderPane borderpane;
 
-        @FXML
-        private ImageView headerImage;
+    @FXML
+    private ImageView headerImage;
 
-        @FXML
-        private Button batchButton;
+    @FXML
+    private Button batchButton;
 
-        @FXML
-        private Button onDemandButton;
+    @FXML
+    private Button onDemandButton;
 
-        @FXML
-        private Button qualityButton;
+    @FXML
+    private Button qualityButton;
 
-        @FXML
-        private Button reportButton;
+    @FXML
+    private Button reportButton;
 
-        @FXML
-        private Label contentLabel;
+    @FXML
+    private Label contentLabel;
 
-        @FXML
-        private VBox vBox;
+    @FXML
+    private VBox vBox;
 
     private void setCenterContent(Parent root) {
         borderpane.setCenter(root);
     }
 
-        public void initialize() {
-            try {
-                FileInputStream inputStream = new FileInputStream("src/main/resources/image/logo.png");
-                Image image = new Image(inputStream);
-                headerImage.setImage(image);
-                inputStream.close();
-            } catch (IOException e) {
-                System.out.println("Image file not found.");
-            }
-        }
+    public void initialize() {
+        try {
+            FileInputStream inputStream = new FileInputStream("src/main/resources/image/logo.png");
+            Image image = new Image(inputStream);
+            headerImage.setImage(image);
+            inputStream.close();
+            handleBatchButton();
 
-        @FXML
-        private void handleButtonClick(ActionEvent event) {
-            Button clickedButton = (Button) event.getSource();
-            switch (clickedButton.getId()) {
-                case "batchButton":
-                    handleBatchButton();
-                    break;
-                case "onDemandButton":
-                    handleOnDemandButton();
-                    break;
-                case "qualityButton":
-                    handleQualityButton();
-                    break;
-                case "reportButton":
-                    handleReportButton();
-                    break;
-                default:
-                    System.out.println("Unknown button clicked");
-                    break;
-            }
+        } catch (IOException e) {
+            System.out.println("Image file not found.");
         }
+    }
 
-        private void handleBatchButton() {
+    @FXML
+    private void handleButtonClick(ActionEvent event) {
+        Button clickedButton = (Button) event.getSource();
+
+        // Clear active class from all buttons
+        batchButton.getStyleClass().remove("active");
+        onDemandButton.getStyleClass().remove("active");
+        qualityButton.getStyleClass().remove("active");
+
+        // Add active class to the clicked button
+        clickedButton.getStyleClass().add("active");
+        switch (clickedButton.getId()) {
+            case "batchButton":
+                handleBatchButton();
+                break;
+            case "onDemandButton":
+                handleOnDemandButton();
+                break;
+            case "qualityButton":
+                handleQualityButton();
+                break;
+            case "reportButton":
+                handleReportButton();
+                break;
+            default:
+                System.out.println("Unknown button clicked");
+                break;
+        }
+    }
+
+    private void handleBatchButton() {
 //            ChoiceBox<String> choiceBox = new ChoiceBox<>();
 //            choiceBox.getItems().addAll("Option 1", "Option 2", "Option 3", "Option 4", "Option 5");
 //
@@ -90,22 +99,16 @@ public class HelloController {
 //
 //            ((BorderPane) batchButton.getScene().getRoot()).setCenter(choiceBox);
 
-            try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("batch.fxml"));
             Parent root = loader.load();
             setCenterContent(root);
-            System.out.println(root);
-
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
+            System.out.println("batch");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        }
+    }
 
 
 
@@ -114,6 +117,42 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("onDemand.fxml"));
             Parent root = loader.load();
             setCenterContent(root);
+            System.out.println("Demand");
+
+            // Create a new stage for the batch view
+
+            // Optionally, you can close the current stage (if needed)
+            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            // currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleQualityButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("quality.fxml"));
+            Parent root = loader.load();
+            setCenterContent(root);
+            System.out.println("quality");
+
+            // Create a new stage for the batch view
+
+            // Optionally, you can close the current stage (if needed)
+            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            // currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleReportButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("report.fxml"));
+            Parent root = loader.load();
+            setCenterContent(root);
             System.out.println(root);
 
             // Create a new stage for the batch view
@@ -125,43 +164,7 @@ public class HelloController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        }
-
-        private void handleQualityButton() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("quality.fxml"));
-                Parent root = loader.load();
-                setCenterContent(root);
-                System.out.println(root);
-
-                // Create a new stage for the batch view
-
-                // Optionally, you can close the current stage (if needed)
-                // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                // currentStage.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        private void handleReportButton() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("report.fxml"));
-                Parent root = loader.load();
-                setCenterContent(root);
-                System.out.println(root);
-
-                // Create a new stage for the batch view
-
-                // Optionally, you can close the current stage (if needed)
-                // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                // currentStage.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    }
 
 
 

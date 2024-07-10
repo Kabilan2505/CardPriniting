@@ -7,15 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderpane" prefHeight="665.0" prefWidth="779.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.HelloController">
+<BorderPane fx:id="borderpane" prefHeight="665.0" prefWidth="779.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.fxcontroller.HelloController">
     <top>
         <VBox prefHeight="130" style="-fx-background-color: #1f4380;" xmlns:fx="http://javafx.com/fxml/1">
             <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
+                <Insets bottom="10" left="10" right="10" top="10"/>
             </padding>
-            <children>
-                <ImageView fx:id="headerImage" />
-            </children>
+            <ImageView fx:id="headerImage"/>
         </VBox>
     </top>
 <!--    <left>-->
