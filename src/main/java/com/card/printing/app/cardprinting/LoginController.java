@@ -51,7 +51,7 @@ public class LoginController {
         String password = passwordField.getText();
         System.out.println(username + password);
 
-        if (username.equals("kabilan25") && password.equals("Admin@12345")) {
+        if (username.equals("superadmin") && password.equals("superadmin")) {
             showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, " + username + "!");
 
             // Load the new FXML file

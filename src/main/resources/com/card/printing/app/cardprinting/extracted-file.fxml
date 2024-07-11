@@ -16,7 +16,7 @@
         </center>
         <right>
             <VBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 20;">
-                <Button onAction="#previewText" text="Preview" style="-fx-min-width: 150px; -fx-background-color: #2196F3; -fx-text-fill: white;" />
+                <Button onAction="#previewText" text="Preview" style="-fx-min-width: 150px; -fx-background-color: #1f4380; -fx-text-fill: white;" />
             </VBox>
         </right>
     </BorderPane>

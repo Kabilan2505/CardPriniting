@@ -25,8 +25,8 @@
                <children>
                   <Pane layoutX="80.0" layoutY="108.0" prefHeight="303.0" prefWidth="289.0">
                      <children>
-                        <TextField fx:id="usernameField" layoutX="5.0" layoutY="84.0" prefHeight="35.0" prefWidth="245.0" promptText="username" text="kabilan25" />
-                        <PasswordField fx:id="passwordField" layoutX="5.0" layoutY="161.0" prefHeight="35.0" prefWidth="245.0" promptText="password" text="Admin@12345" />
+                        <TextField fx:id="usernameField" layoutX="5.0" layoutY="84.0" prefHeight="35.0" prefWidth="245.0" promptText="username" text="superadmin" />
+                        <PasswordField fx:id="passwordField" layoutX="5.0" layoutY="161.0" prefHeight="35.0" prefWidth="245.0" promptText="password" text="superadmin" />
                         <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #1f4380;" text="Sign in" textFill="#eeecec" />
                         <Label layoutX="5.0" layoutY="9.0" prefHeight="31.0" prefWidth="81.0" text="Sign in">
                            <font>
