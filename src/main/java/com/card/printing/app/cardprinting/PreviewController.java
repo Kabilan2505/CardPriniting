@@ -1,5 +1,6 @@
 package com.card.printing.app.cardprinting;
 
+import com.card.printing.app.cardprinting.dto.ResidentDetails;
 import com.card.printing.app.cardprinting.service.ArchiveExtractor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,17 +22,19 @@ public class PreviewController {
     private Label file;
 
 
-    public void setFilePath(String selectedFileName){
+    public void setFilePath(String selectedFileName) {
         String fileNameWithoutExtension = selectedFileName.substring(0, selectedFileName.lastIndexOf('.'));
-        ArchiveExtractor archiveExtractor=new ArchiveExtractor();
-        List<String> outputPath=archiveExtractor.getOutputPath();
-        System.out.println("outUI"+outputPath);
-        System.out.println("outUI"+ outputPath.get(0));
-      File file = new File("D:\\output\\unzip\\batch_2\\batch_2\\"+selectedFileName);
-        System.out.println("filedecrypt"+file);
+        ArchiveExtractor archiveExtractor = new ArchiveExtractor();
+        List<String> outputPath = archiveExtractor.getOutputPath();
+        System.out.println("outUI" + outputPath);
+        System.out.println("outUI" + outputPath.get(0));
+        File file = new File("D:\\output\\unzip\\outdata", selectedFileName);
+        System.out.println("Absolute Path " + file.getAbsolutePath());
+        System.out.println("filedecrypt" + file);
 //        file.setText(selectedFileName);
 //        archiveExtractor.decryptPCN("E:\\output\\unzip\\12358\\12358\\12358.txt");
-        archiveExtractor.decryptPCN(file);
+        ResidentDetails res = archiveExtractor.decryptTextFile(file);
+        System.out.println("First Name " + res.getFirstname());
 
-        }
+    }
 }

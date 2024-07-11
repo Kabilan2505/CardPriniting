@@ -41,6 +41,7 @@ public class ExtractedFileController {
     public void previewText(ActionEvent actionEvent) {
 
         String selectedFileName = (String) textlistview.getSelectionModel().getSelectedItem();
+        System.out.println(" preview "+selectedFileName);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("preview.fxml"));
         try {

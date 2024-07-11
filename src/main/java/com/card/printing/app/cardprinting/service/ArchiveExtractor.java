@@ -3,13 +3,13 @@ package com.card.printing.app.cardprinting.service;
 import java.io.*;
 import java.nio.Buffer;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 import com.card.printing.app.cardprinting.common.EncryptData;
 import com.card.printing.app.cardprinting.common.InitConstants;
+import com.card.printing.app.cardprinting.dto.ResidentDetails;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
@@ -35,6 +35,12 @@ public class ArchiveExtractor {
     @Getter
     String OutputPath;
 
+//    @Autowired
+//    QRCodeGenerator qrCodeGenerator;
+
+   /* @Autowired
+    ImageCompressor imageCompressor;*/
+
     public void extract(String source , String output ){
             File file = new File(source);
             if(file.isFile()){
@@ -51,7 +57,7 @@ public class ArchiveExtractor {
                     extractRar(file, String.valueOf(Paths.get(output, InitConstants.unrar)));
 //                    moveZiporRarFile(file , output+InitConstants.extractedZip);
                 }else if(fileName.endsWith(".txt")){
-                    decryptPCN(file);
+                    processFiles(file);
                 }
             }
 
@@ -94,26 +100,28 @@ public class ArchiveExtractor {
 //            moveZiporRarFile(txtFilePath , outputPath);
             ZipFile zipFile = new ZipFile(file);
             zipFile.extractAll(outputPath);
-            processFiles(new File(outputPath , file.getName().replaceFirst("\\.zip$","")));
+            File n = new File(outputPath);
+            File[] fille = n.listFiles();
+            for(File u :fille ){
+                txtFile.add(u.getName());
+                System.out.println( u.toString());
+            }
+//            processFiles(new File(outputPath));
         } catch (ZipException e) {
             e.printStackTrace();
         }
     }
 
-    private void processFiles(File outputFolder) {
-        System.out.println(outputFolder + " ----- ");
-//        if (outputFolder.isDirectory()) {
-            File text = new File(outputFolder.getAbsolutePath());
-            File parentFile = text.getParentFile();
+    public void processFiles(File outputFolder) {
 
+        File text = new File(outputFolder.getAbsolutePath());
 
-        System.out.println("outpuFolder"+outputFolder);
-        OutputPath= String.valueOf(outputFolder);
-        getOutputPath();
-//            System.out.println("text File " + text.getName());
-//
-            List<String> pcns = readPcns(new File(parentFile , text.getName() + ".txt" ));
-
+        Path path = Paths.get(text.getAbsolutePath());
+        Path txtPath = path.getParent();
+        System.out.println("Text Path : "+txtPath);
+        String tx = String.valueOf(new File(String.valueOf(txtPath), text.getName() + ".txt"));
+        System.out.println("File Path "+ tx);
+        List<String> pcns = readPcns(new File(String.valueOf(txtPath), outputFolder.getName() + ".txt"));
             File[] files = outputFolder.listFiles();
             StringBuilder builder = new StringBuilder();
             if (files != null) {
@@ -121,17 +129,13 @@ public class ArchiveExtractor {
                     if (file.isDirectory()) {
                         processFiles(file);
                     } else if (file.getName().endsWith(".txt")) {
-
                         String filename = file.getName().toLowerCase().replace(".txt","");
 
-                        txtFile.add(file.getName());
                         System.out.println("textFile"+ txtFile);
                         System.out.println("filename"+filename);
 
-                        boolean isDecrypted =  decryptPCN(file);
-
-                        builder.append(filename).append(isDecrypted ? " - Processed " : " - Not Processed ").append("\n");
-
+                        ResidentDetails details = decryptTextFile(file);
+                        builder.append(filename).append(details.isProcessStatus() ? " - Processed " : " - Not Processed ").append("\n");
                         pcns.remove(filename);
 
                     }
@@ -142,7 +146,7 @@ public class ArchiveExtractor {
                 builder.append(remainingPcns).append(" - Not Found \n");
             }
 
-            updateTextFile(builder.toString() , new File(parentFile , text.getName() + ".txt" ));
+            updateTextFile(builder.toString() , new File(String.valueOf(txtPath), text.getName() + ".txt" ));
 
 //        }
     }
@@ -156,6 +160,8 @@ public class ArchiveExtractor {
     }
 
     private List<String> readPcns(File file){
+        System.out.println("File Read Path : "+file.getAbsolutePath());
+        System.out.println("File Read Parent : "+file.getParent());
         List<String> pcnList = new ArrayList<>();
 
         try{
@@ -178,56 +184,93 @@ public class ArchiveExtractor {
     }
 
 
-    public boolean decryptPCN(File file){
-        System.out.println(file);
-        System.out.println(file.getName());
-        String decrpt = null;
-//       textFile.add(file.getName());
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+//    public boolean decryptPCN(File file){
+//        System.out.println(file);
+//        System.out.println(file.getName());
+//        String decrpt = null;
+////       textFile.add(file.getName());
+//        try{
+//            BufferedReader reader = new BufferedReader(new FileReader(file));
+//            String line = reader.readLine();
+//            String[] diltSimpleAfter = line.split("~");
+//            if(diltSimpleAfter.length > 0) {
+//                String afterDelimiter = diltSimpleAfter[0].trim();
+//                decrpt = encryptData.AESDecrypt(afterDelimiter);
+//                System.out.println(decrpt);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        if(decrpt.isEmpty() || decrpt == null){
+//            return false;
+//        }
+//
+//        return true;
+//    }
+    public ResidentDetails decryptTextFile(File file) {
+        String decrptedContent = "";
+        System.out.println("Decrypt "+file.getName());
+        ObjectMapper mapper = new ObjectMapper();
+        ResidentDetails details = new ResidentDetails();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line = reader.readLine();
-            String[] diltSimpleAfter = line.split("~");
-            if(diltSimpleAfter.length > 0) {
-                String afterDelimiter = diltSimpleAfter[0].trim();
-                decrpt = encryptData.AESDecrypt(afterDelimiter);
-                System.out.println(decrpt);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(decrpt.isEmpty() || decrpt == null){
-            return false;
-        }
-
-        return true;
-    }
-
-    public void processTextFile(File file , String content){
-
-    }
-
-    /*private static void extractZip(File zipFile, String outputDir) {
-        try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
-            ZipEntry entry;
-            while ((entry = zis.getNextEntry()) != null) {
-                String filePath = outputDir + File.separator + entry.getName();
-                if (!entry.isDirectory()) {
-                    new File(filePath).getParentFile().mkdirs();
-
-                    try (FileOutputStream fos = new FileOutputStream(filePath)) {
-                        byte[] buffer = new byte[1024];
-                        int len;
-                        while ((len = zis.read(buffer)) > 0) {
-                            fos.write(buffer, 0, len);
-                        }
-                    }
+            if (line != null) {
+                String content = line.split("~")[0];
+                String img = line.split("~")[1];
+                if (Objects.nonNull(content) && content.startsWith("{")) {
+                    details.setProcessStatus(false);
+                    return details;
                 }
-                zis.closeEntry();
+                byte[] imgArr = getBdb(img, "card");
+                byte[] qrImg = getBdb(img, "qr");
+                decrptedContent = encryptData.AESDecrypt(content);
+                System.out.println("decrptedContent :" + decrptedContent);
+                details = mapper.readValue(decrptedContent, ResidentDetails.class);
+                details.setImg(imgArr);
+                details.setQrFaceImg(qrImg);
+                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator();
+                details.setQrImg(qrCodeGenerator.createQR(encodeImageBase64(qrImg)));
+                details.setProcessStatus(true);
+            } else {
+                System.out.println("File is empty");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+
+        if (decrptedContent == null || decrptedContent.isEmpty()) {
+            details.setProcessStatus(false);
+            return details;
+        }
+        return details;
+    }
+
+    public String encodeImageBase64(byte[] bytes) {
+        return Base64.getEncoder().encodeToString(bytes);
+    }
+
+    public byte[] getBdb(String hexImage, String imageType) {
+        ISO iso = new ISO();
+        ImageProcessingService ImageProcessingService = new ImageProcessingService();
+        try {
+            return ImageProcessingService.ImageConvertor(hexImage, imageType);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
+
+    private byte[] toByteArray(String hexString) {
+        int arrLength = hexString.length() >> 1;
+        byte[] buf = new byte[arrLength];
+        for (int ii = 0; ii < arrLength; ii++) {
+            int index = ii << 1;
+            String l_digit = hexString.substring(index, index + 2);
+            buf[ii] = (byte) Integer.parseInt(l_digit, 16);
+        }
+        return buf;
+    }
+
 
     private static void extractRar(File rarFile, String outputDir) {
         try (Archive archive = new Archive(new FileInputStream(rarFile))) {

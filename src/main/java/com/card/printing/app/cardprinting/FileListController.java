@@ -72,13 +72,14 @@ public class FileListController{
 //        batchView.getChildren().setAll(newContent);
 
         String selectedPath = listView.getSelectionModel().getSelectedItem();
+        System.out.println("selectedPath"+selectedPath);
         if (selectedPath != null) {
             File selectedFile = new File(selectedPath);
             if (!selectedFile.exists()) {
 //                showAlert("File Error", "Selected file does not exist.");
                 return;
             }
-
+            System.out.println("outputPath"+outputPath);
             // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
             archive.extract(selectedPath, outputPath);// Adjust the output path as needed
