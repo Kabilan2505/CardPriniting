@@ -1,5 +1,6 @@
 package com.card.printing.app.cardprinting;
 
+
 import com.card.printing.app.cardprinting.service.ArchiveExtractor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,37 +8,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class FileListController {
 
-    private static final Logger log = LoggerFactory.getLogger(FileListController.class);
+public class FileListController{
+
     @FXML
     private ListView<String> listView;
-
-    String loc;
-
-    @FXML
-    private VBox parent;
 
     @FXML
     private VBox batchView;
 
-    @FXML
-    private VBox extractedView;
-
+    String filepath;
 
     public void initialize() {
         // Specify the folder path
@@ -51,7 +37,8 @@ public class FileListController {
             // Add file names to the ListView
             for (File file : files) {
                 if (file.isFile()) {
-                    listView.getItems().add(file.getAbsolutePath());
+                    listView.getItems().add(file.getName());
+                    filepath = file.getAbsolutePath();
                 }
             }
         } else {
@@ -60,7 +47,11 @@ public class FileListController {
     }
 
     @FXML
-    private void handleZip(ActionEvent event) {
+    public void handleUnzippedFile(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
+        Parent newContent = loader.load();
+        batchView.getChildren().setAll(newContent);
+
         String selectedPath = listView.getSelectionModel().getSelectedItem();
         if (selectedPath != null) {
             File selectedFile = new File(selectedPath);
@@ -71,16 +62,11 @@ public class FileListController {
 
             // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
-            archive.extract(selectedPath, "D:/output");
-
-//            parent.getChildren().remove(batchView);
-//            parent.getChildren().add(extractedView);
-//            System.out.println("batch");
-
-            loadExtractedView();
-
+            archive.extract(selectedPath, "D:/output");// Adjust the output path as needed
 
         }
+
+    }
 
 
        /* public void Button1Action(ActionEvent event) {
@@ -108,20 +94,4 @@ public class FileListController {
             } else {
                 System.out.println("No zip files found in the selected directory!");
             }*/
-
-    }
-
-
-    private void loadExtractedView() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("extractedView.fxml"));
-//            Parent extractedView = loader.load();
-
-        // Get the current scene and replace the root with the new view
-        Scene currentScene = batchView.getScene();
-        Parent root = currentScene.getRoot();
-        System.out.println(currentScene);
-        BorderPane parent = (BorderPane) root;
-        parent.setCenter(extractedView);
-
-    }
 }
