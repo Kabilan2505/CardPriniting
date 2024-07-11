@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.Buffer;
 import java.nio.file.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -12,6 +13,7 @@ import com.card.printing.app.cardprinting.common.InitConstants;
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
+import lombok.Getter;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import org.slf4j.Logger;
@@ -25,9 +27,13 @@ public class ArchiveExtractor {
 
     EncryptData encryptData = new EncryptData();
 
-    List<String> textFile;
+    @Getter
+    List<String> txtFile=new ArrayList<>();
 
     Logger log = LoggerFactory.getLogger(ArchiveExtractor.class);
+
+    @Getter
+    String OutputPath;
 
     public void extract(String source , String output ){
             File file = new File(source);
@@ -82,6 +88,7 @@ public class ArchiveExtractor {
     private void extractZip(File file, String outputDir , File txtFilePath) {
         try {
             String outputPath = Paths.get(outputDir , file.getName().replace(".zip","")).toString();
+            System.out.println("outputPath"+outputPath);
             File outputFile = new File(outputPath);
             outputFile.mkdirs();
 //            moveZiporRarFile(txtFilePath , outputPath);
@@ -98,6 +105,11 @@ public class ArchiveExtractor {
 //        if (outputFolder.isDirectory()) {
             File text = new File(outputFolder.getAbsolutePath());
             File parentFile = text.getParentFile();
+
+
+        System.out.println("outpuFolder"+outputFolder);
+        OutputPath= String.valueOf(outputFolder);
+        getOutputPath();
 //            System.out.println("text File " + text.getName());
 //
             List<String> pcns = readPcns(new File(parentFile , text.getName() + ".txt" ));
@@ -112,13 +124,11 @@ public class ArchiveExtractor {
 
                         String filename = file.getName().toLowerCase().replace(".txt","");
 
-//                        boolean exists = pcns.contains(filename);
-
-                        System.out.println(filename);
+                        txtFile.add(file.getName());
+                        System.out.println("textFile"+ txtFile);
+                        System.out.println("filename"+filename);
 
                         boolean isDecrypted =  decryptPCN(file);
-
-//                        builder.append(filename).append(exists ? " - Exists " : " - Not Exists ").append("\n");
 
                         builder.append(filename).append(isDecrypted ? " - Processed " : " - Not Processed ").append("\n");
 
@@ -168,9 +178,11 @@ public class ArchiveExtractor {
     }
 
 
-    private boolean decryptPCN(File file){
+    public boolean decryptPCN(File file){
+        System.out.println(file);
         System.out.println(file.getName());
         String decrpt = null;
+//       textFile.add(file.getName());
         try{
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = reader.readLine();
@@ -254,5 +266,11 @@ public class ArchiveExtractor {
         }
     }
 
+    public List<String> getTextFeild(){
+        return txtFile;
+    }
+    public List<String> getOutputPath(){
+        return Collections.singletonList(OutputPath);
+    }
 
 }
