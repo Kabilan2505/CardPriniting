@@ -25,6 +25,8 @@ public class ArchiveExtractor {
 
     EncryptData encryptData = new EncryptData();
 
+    List<String> textFile;
+
     Logger log = LoggerFactory.getLogger(ArchiveExtractor.class);
 
     public void extract(String source , String output ){

@@ -27,6 +27,7 @@ public class FileListController{
 
     public void initialize() {
         // Specify the folder path
+        // Specify the folder path
         String folderPath = "D:\\CardPrinting";
 
         // Read files from the specified folder
@@ -38,7 +39,6 @@ public class FileListController{
             for (File file : files) {
                 if (file.isFile()) {
                     listView.getItems().add(file.getName());
-                    filepath = file.getAbsolutePath();
                 }
             }
         } else {
