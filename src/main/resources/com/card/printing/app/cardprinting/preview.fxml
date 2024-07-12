@@ -3,10 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="479.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 2;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.PreviewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="479.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 2;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.PreviewController">
 
    <!-- This Rectangle serves as the border around the ID card -->
    <!--   <center>-->
@@ -142,17 +141,30 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label  contentDisplay="CENTER" layoutX="21.0" layoutY="240.0" prefHeight="16.0" prefWidth="270.0" text="APELYIDO/FIRSTNAME">
+            <Label contentDisplay="CENTER" layoutX="21.0" layoutY="240.0" prefHeight="16.0" prefWidth="270.0" text="APELYIDO/FIRSTNAME">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <ImageView fx:id="bwphoto" fitHeight="101.0" fitWidth="92.0" layoutX="21.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="colorphoto" fitHeight="43.0" fitWidth="37.0" layoutX="127.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="358.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="392.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="colorphoto" fitHeight="125.0" fitWidth="109.0" layoutX="21.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bwphoto" fitHeight="43.0" fitWidth="37.0" layoutX="127.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="31.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Image/nationalLogo.jpg" />
+               </image>
             </ImageView>
+            <ImageView fitHeight="92.0" fitWidth="86.0" layoutX="357.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Image/image2.png" />
+
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="62.0" layoutX="386.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Image/PSALOGO.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="id1" layoutX="11.0" layoutY="72.0" prefHeight="17.0" prefWidth="123.0" text="1234-0987-4567-0192" />
          </children>
       </AnchorPane>
    </center>
@@ -169,7 +181,7 @@
                   </Label>
                   <Label fx:id="creationDate" layoutX="11.0" layoutY="31.0" prefHeight="17.0" prefWidth="123.0" text="12 JUL 2024">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
                   <Label layoutX="11.0" layoutY="48.0" prefHeight="17.0" prefWidth="123.0" text="kasarian / sex">
@@ -179,7 +191,7 @@
                   </Label>
                   <Label fx:id="sex" layoutX="11.0" layoutY="65.0" prefHeight="17.0" prefWidth="123.0" text="Female">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
                   <Label layoutX="13.0" layoutY="82.0" prefHeight="17.0" prefWidth="149.0" text="grupo ng dugo / Blood Typegrupo ng dugo / Blood Type">
@@ -189,7 +201,7 @@
                   </Label>
                   <Label fx:id="bloodtype" layoutX="11.0" layoutY="98.0" prefHeight="17.0" prefWidth="123.0" text="AB">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
                   <Label layoutX="10.0" layoutY="115.0" prefHeight="17.0" prefWidth="139.0" text="katayuan sa / Marital status">
@@ -199,7 +211,7 @@
                   </Label>
                   <Label fx:id="maritalstatus" layoutX="11.0" layoutY="132.0" prefHeight="17.0" prefWidth="123.0" text="Unmarried">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
                   <Label layoutX="11.0" layoutY="149.0" prefHeight="17.0" prefWidth="164.0" text="Lugar ng / Place of Birth">
@@ -209,14 +221,14 @@
                   </Label>
                   <Label fx:id="birthprovince" layoutX="11.0" layoutY="166.0" prefHeight="17.0" prefWidth="123.0" text="400 san">
                      <font>
-                        <Font name="System Bold" size="10.0" />
+                        <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="139.0">
                <children>
-                  <ImageView fx:id="qrcode" fitHeight="114.0" fitWidth="156.0" layoutX="42.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="id1" layoutX="52.0" layoutY="163.0" prefHeight="17.0" prefWidth="123.0" text="1234-0987-4567-0192" />
+                  <ImageView fx:id="qrcode" fitHeight="159.0" fitWidth="169.0" layoutX="45.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="id" contentDisplay="RIGHT" layoutX="52.0" layoutY="173.0" prefHeight="17.0" prefWidth="123.0" text="1234-0987-4567-0192" />
                </children></AnchorPane>
          </items>
       </SplitPane>
