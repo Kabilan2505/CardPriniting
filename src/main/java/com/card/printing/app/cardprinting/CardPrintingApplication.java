@@ -12,7 +12,8 @@ public class CardPrintingApplication extends Application {
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CardPrintingApplication.class.getResource("Login2.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+//        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         String css=this.getClass().getResource("Style.css").toExternalForm();
         scene.getStylesheets().add(css);

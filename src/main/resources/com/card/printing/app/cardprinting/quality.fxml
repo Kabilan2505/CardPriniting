@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.PopupController">
+            xmlns:fx="http://javafx.com/fxml/1">
 
    <!--      <Button layoutX="367.0" layoutY="283.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="127.0" style="-fx-background-color: #1f4380;" text="SUBMIT" textFill="#fffbfb">-->
    <!--         <font>-->
@@ -17,7 +17,7 @@
 
    <Button layoutX="367.0" layoutY="283.0"
            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 150px;" text="Submit"
-           textFill="#cdcbcb" onAction="#openPopup">
+           textFill="#cdcbcb" >
       <font>
          <Font size="14.0"/>
       </font>
@@ -25,7 +25,7 @@
    <TextField layoutX="235.0" layoutY="200.0" prefHeight="35.0" prefWidth="245.0" promptText="reason"/>
    <!--      <TextField layoutX="235.0" layoutY="110.0" prefHeight="35.0" prefWidth="213.0" style="-fx-border-color: black; -fx-border-radius: 5;" />-->
    <!--      <TextField layoutX="235.0" layoutY="200.0" prefHeight="35.0" prefWidth="213.0" style="-fx-border-color: black; -fx-border-radius: 5;" />-->
-   <Label contentDisplay="CENTER" layoutX="209.0" layoutY="34.0" prefHeight="50.0" prefWidth="207.0"
+   <Label layoutX="209.0" layoutY="34.0" prefHeight="50.0" prefWidth="207.0"
           text="Quality Check">
       <font>
          <Font name="System Bold" size="24.0"/>

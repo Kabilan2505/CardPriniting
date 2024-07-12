@@ -3,9 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<!--<?import javafx.scene.web.*?>-->
 
 <VBox fx:id="batchView" maxHeight="603.0" maxWidth="1011.0" minHeight="422.0" minWidth="797.0" prefHeight="555.0" prefWidth="1011.0" style="-fx-min-width: 100%; -fx-min-height: 100%;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.FileListController">
+    <Label contentDisplay="CENTER" layoutX="209.0" layoutY="34.0" prefHeight="50.0" prefWidth="207.0" text="Batch Processing">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
     <BorderPane>
+
         <center>
 
 <!--            <ScrollPane prefHeight="462.0" prefWidth="600.0" VBox.vgrow="ALWAYS">-->
@@ -16,14 +23,13 @@
         </center>
         <right>
             <VBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 20;">
-                <Button onAction="#handleUnzippedFile" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 150px;"  text="Open">
+                <Button onAction="#handleUnzippedFile" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 150px;" text="Open">
                <font>
                   <Font size="14.0" />
                </font></Button>
             </VBox>
         </right>
     </BorderPane>
-
 
 
 </VBox>
