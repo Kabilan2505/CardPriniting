@@ -36,3 +36,13 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+.unzip/
+outdata/
+
+outdata.txt
+outdata.zip
+
+
+
+
