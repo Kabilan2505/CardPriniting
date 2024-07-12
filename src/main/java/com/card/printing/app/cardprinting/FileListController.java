@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +25,7 @@ import java.util.List;
 public class FileListController{
 
 
+    private static final Logger log = LoggerFactory.getLogger(FileListController.class);
     @FXML
     private ListView<String> listView;
 
@@ -37,14 +40,16 @@ public class FileListController{
     @FXML
     public TableColumn<FileRecord, String> fileNameColumn;
 
-    String outputPath="E:/output";
+    String outputPath="D:/output";
+    String folderPath = "D:\\CardPrinting\\";
+    String originalBath;
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
     public void initialize() {
         // Specify the folder path
         // Specify the folder path
-        String folderPath = "E:\\CardPrinting";
+
 
 
         // Read files from the specified folder
@@ -55,7 +60,8 @@ public class FileListController{
             // Add file names to the ListView
             for (File file : files) {
                 if (file.isFile()) {
-                    listView.getItems().add(file.getAbsolutePath());
+                    listView.getItems().add(file.getName());
+                    listView.setStyle("-fx-font-size: 20px");
                 }
             }
         } else {
@@ -70,19 +76,18 @@ public class FileListController{
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
 //        Parent newContent = loader.load();
 //        batchView.getChildren().setAll(newContent);
-
-        String selectedPath = listView.getSelectionModel().getSelectedItem();
-        System.out.println("selectedPath"+selectedPath);
-        if (selectedPath != null) {
-            File selectedFile = new File(selectedPath);
+        String fileName=listView.getSelectionModel().getSelectedItem();
+        String absolutePath=folderPath+fileName;
+        if (absolutePath != null) {
+            File selectedFile = new File(absolutePath);
             if (!selectedFile.exists()) {
 //                showAlert("File Error", "Selected file does not exist.");
                 return;
             }
-            System.out.println("outputPath"+outputPath);
+            System.out.println("outputPath"+absolutePath);
             // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
-            archive.extract(selectedPath, outputPath);// Adjust the output path as needed
+            archive.extract(absolutePath, outputPath);// Adjust the output path as needed
 //            System.out.println("selectedPath"+path);
             txtFile = archive.getTextFeild();
             addFileRecords(txtFile);
@@ -93,7 +98,7 @@ public class FileListController{
             try {
                 Parent newContent = loader.load();
                 ExtractedFileController extractedFileController = loader.getController();
-                extractedFileController.setFilePath(selectedPath, txtFile); // Pass the selected file name
+                extractedFileController.setFilePath(originalBath, txtFile); // Pass the selected file name
                 batchView.getChildren().setAll(newContent);
             } catch (IOException e) {
                 e.printStackTrace();

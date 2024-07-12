@@ -31,7 +31,7 @@ public class ExtractedFileController {
             for (String file : txtFiles) {
 
                 textlistview.getItems().add(file);
-
+                textlistview.setStyle("-fx-font-size: 20px");
             }
         } else {
 //            System.err.println("Failed to read files from the folder: " + folderPath);

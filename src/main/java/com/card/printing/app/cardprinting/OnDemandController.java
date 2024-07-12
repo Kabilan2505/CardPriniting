@@ -20,11 +20,11 @@ public class OnDemandController {
     public VBox ondemandview;
     public ListView<String> ondemandlistView;
 
-    String outputPath="E:/output";
+    String outputPath="D:/output";
 
     List<String> txtFile;
 
-    String folderPath = "E:\\ondemandPrinting\\";
+    String folderPath = "D:\\ondemand\\";
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
