@@ -37,14 +37,14 @@ public class FileListController{
     @FXML
     public TableColumn<FileRecord, String> fileNameColumn;
 
-    String outputPath="E:/output";
+    String outputPath="D:/output";
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
     public void initialize() {
         // Specify the folder path
         // Specify the folder path
-        String folderPath = "E:\\CardPrinting";
+        String folderPath = "D:\\CardPrinting";
 
 
         // Read files from the specified folder
