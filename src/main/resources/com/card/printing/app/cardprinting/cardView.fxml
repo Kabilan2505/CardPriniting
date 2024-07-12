@@ -6,7 +6,7 @@
 <!--<?import javafx.scene.shape.*?>-->
 <!--<?import javafx.scene.text.*?>-->
 
-<!--<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.CardController">-->
+<!--<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="290.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.CardController">-->
 
 <!--    &lt;!&ndash; This Rectangle serves as the border around the ID card &ndash;&gt;-->
 <!--    <center>-->
@@ -15,17 +15,20 @@
 
 <!--            &lt;!&ndash; AnchorPane for the ID card content &ndash;&gt;-->
 <!--            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">-->
+<!--                <ImageView fx:id="logo" fitHeight="89.0" fitWidth="51.0" layoutX="85.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                </ImageView>-->
 <!--                <ImageView fitHeight="89.0" fitWidth="51.0" layoutX="368.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">-->
 <!--                    <Image url="@../../../../../Image/image2.png" />-->
-<!--                </ImageView>-->
-<!--                <ImageView fitHeight="59.0" fitWidth="74.0" layoutX="391.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">-->
 <!--                </ImageView>-->
 <!--                <Label layoutX="184.0" layoutY="5.0" prefHeight="0.0" prefWidth="200.0" style="-fx-font-family: BOLD;-fx-font-size: 12" text="REPUBLIKA NG PILIPINAS">-->
 <!--                    <font>-->
 <!--                        <Font name="System Bold" size="12.0" />-->
 <!--                    </font>-->
 <!--                </Label>-->
-<!--                <ImageView fx:id="colorphoto" fitHeight="115.0" fitWidth="82.0" layoutX="57.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                <ImageView fitHeight="115.0" fitWidth="82.0" layoutX="73.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                    <image>-->
+<!--                        <Image url="@../../../../../Image/1-PSA-LOGO-1472x1536.png" />-->
+<!--                    </image>-->
 <!--                </ImageView>-->
 <!--                <Label layoutX="197.0" layoutY="66.0" prefHeight="21.0" prefWidth="179.0" style=" -fx-font-size: 10" text="APELYIDO/FIRSTNAME">-->
 <!--                    <font>-->
@@ -48,15 +51,18 @@
 <!--                    </font>-->
 <!--                </Label>-->
 <!--                <Label layoutX="76.0" layoutY="70.0" prefHeight="30.0" prefWidth="142.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="1234-1234-1234-1234" />-->
-<!--                <Label fx:id="lastname" layoutX="217.0" layoutY="77.0" prefHeight="30.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10"  />-->
-<!--                <Label fx:id="firstname" layoutX="219.0" layoutY="107.0" prefHeight="30.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10" />-->
-<!--                <Label fx:id="middlename" layoutX="219.0" layoutY="143.0" prefHeight="21.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10"  />-->
-<!--                <Label fx:id="dob" layoutX="208.0" layoutY="173.0" prefHeight="21.0" prefWidth="107.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="OCTOBER 06, 1990  " />-->
+<!--                <Label layoutX="217.0" layoutY="77.0" prefHeight="30.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="KEERTHANA" />-->
+<!--                <Label layoutX="219.0" layoutY="107.0" prefHeight="30.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="KEERTHANA" />-->
+<!--                <Label layoutX="219.0" layoutY="143.0" prefHeight="21.0" prefWidth="96.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="KEERTHANA" />-->
+<!--                <Label layoutX="208.0" layoutY="173.0" prefHeight="21.0" prefWidth="107.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="OCTOBER 06, 1990  " />-->
 <!--                <Label layoutX="180.0" layoutY="11.0" prefHeight="30.0" prefWidth="160.0" style="-fx-font-family: BOLD;" text="Rebublic of the Philippines" />-->
 <!--                <Label layoutX="151.0" layoutY="16.0" prefHeight="46.0" prefWidth="206.0" style="-fx-font-family: BOLD;" text="PAMBANSANG PAGKAKAKILANLAN" />-->
 <!--                <Label layoutX="171.0" layoutY="26.0" prefHeight="53.0" prefWidth="179.0" style="-fx-font-family: BOLD;" text="Philippine Identification Card " />-->
-<!--                   <Label layoutX="13.0" layoutY="217.0" prefHeight="30.0" prefWidth="294.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="YUMBING,MAMBAJAO,CAMIGUN,PHILIPPINES,9100." />-->
-<!--                   <Label layoutX="45.0" layoutY="194.0" prefHeight="30.0" prefWidth="138.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="TIRAHAN/ADDRESS" />-->
+<!--                <AnchorPane layoutX="160.0" prefHeight="35.0" prefWidth="2.0" />-->
+<!--                <ImageView fitHeight="59.0" fitWidth="74.0" layoutX="405.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />-->
+<!--                   <Label layoutX="140.0" layoutY="225.0" prefHeight="30.0" prefWidth="294.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="YUMBING,MAMBAJAO,CAMIGUN,PHILIPPINES,9100." />-->
+<!--                   <Label layoutX="151.0" layoutY="195.0" prefHeight="30.0" prefWidth="206.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="PUROK 5,YUMBING, MAMBAJAO,CAMIGUIN" />-->
+<!--                   <Label layoutX="193.0" layoutY="210.0" prefHeight="30.0" prefWidth="138.0" style="-fx-font-family: BOLD;-fx-font-size: 10" text="TIRAHAN/ADDRESS" />-->
 <!--                </AnchorPane>-->
 <!--            </StackPane>-->
 <!--        </center>-->
