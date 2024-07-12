@@ -17,7 +17,6 @@ public class EncryptData {
             setKey();
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-            //return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8"))); //For Base64 output
             return ByteToHexNew(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));  //For Hex output
         } catch (Exception e) {
             System.out.println("Error while encrypting: " + e.toString());
@@ -30,7 +29,6 @@ public class EncryptData {
             setKey();
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            // return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt))); //For Base64 input
             System.out.println("Decrypted Is Working");
             return new String(cipher.doFinal(HexToByteNew(strToDecrypt))); //For Hex input
         } catch (Exception e) {

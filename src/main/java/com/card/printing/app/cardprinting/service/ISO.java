@@ -10,10 +10,7 @@ import java.util.Date;
 @Service
 public class ISO {
 
-
     private int height = 640;
-
-
     private int width = 480;
 
     public  byte[] crtImg(byte[] image){
@@ -27,7 +24,6 @@ public class ISO {
     public byte[] getFaceHeaderWithImage(ImageDetail imageDetail) {
         if (imageDetail.getData() == null) {
             byte[] emptyArray = new byte[0];
-//            logger.info("No Image found in image detail, setting an empty array");
             imageDetail.setData(emptyArray);
         }
         int lengthCounter = 0;

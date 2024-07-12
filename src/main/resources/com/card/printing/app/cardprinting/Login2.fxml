@@ -30,12 +30,6 @@
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-<!--                        <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #1f4380;" text="Sign in" textFill="#eeecec" />-->
-<!--                        <Label layoutX="5.0" layoutY="9.0" prefHeight="31.0" prefWidth="81.0" text="Sign in">-->
-<!--                           <font>-->
-<!--                              <Font name="System Bold" size="21.0" />-->
-<!--                           </font>-->
-<!--                        </Label>-->
                      </children>
                   </Pane>
                </children>

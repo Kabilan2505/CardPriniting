@@ -36,14 +36,6 @@ public class ArchiveExtractor {
     @Getter
     String OutputPath;
 
-//    @Autowired
-//    QRCodeGenerator qrCodeGenerator;
-
-   /* @Autowired
-    ImageCompressor imageCompressor;*/
-
-
-
     public void extract(String source , String output ){
             String path = null;
             File file = new File(source);
@@ -64,21 +56,6 @@ public class ArchiveExtractor {
                     processFiles(file);
                 }
             }
-
-        /*if (files != null) {
-            for (File file : files) {
-                if (file.isFile()) {
-                    String fileName = file.getName().toLowerCase();
-                    if (fileName.endsWith(".zip")) {
-                        extractZip(file, String.valueOf(Paths.get(outputDir, InitConstants.unzip)));
-                        moveZiporRarFile(file , String.valueOf(Paths.get(outputDir , InitConstants.extractedZip)));
-                    } else if (fileName.endsWith(".rar")) {
-                        extractRar(file, outputDir+InitConstants.unzip);
-                        moveZiporRarFile(file , outputDir+InitConstants.extractedZip);
-                    }
-                }
-            }
-        }*/
     }
 
    public void moveZiporRarFile(File file , String outputDir){
@@ -190,29 +167,6 @@ public class ArchiveExtractor {
     }
 
 
-//    public boolean decryptPCN(File file){
-//        System.out.println(file);
-//        System.out.println(file.getName());
-//        String decrpt = null;
-////       textFile.add(file.getName());
-//        try{
-//            BufferedReader reader = new BufferedReader(new FileReader(file));
-//            String line = reader.readLine();
-//            String[] diltSimpleAfter = line.split("~");
-//            if(diltSimpleAfter.length > 0) {
-//                String afterDelimiter = diltSimpleAfter[0].trim();
-//                decrpt = encryptData.AESDecrypt(afterDelimiter);
-//                System.out.println(decrpt);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        if(decrpt.isEmpty() || decrpt == null){
-//            return false;
-//        }
-//
-//        return true;
-//    }
     public ResidentDetails decryptTextFile(File file) {
         String decrptedContent = "";
         System.out.println("Decrypt "+file.getName());

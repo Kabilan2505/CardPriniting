@@ -56,10 +56,6 @@ public class OnDemandController {
 
     @FXML
     public void ondemandUnZip(ActionEvent actionEvent) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
-//        Parent newContent = loader.load();
-//        batchView.getChildren().setAll(newContent);
-
         String selectedPath = ondemandlistView.getSelectionModel().getSelectedItem();
         String absolutePath = folderPath + selectedPath;
         System.out.println("selectedPath"+absolutePath);
@@ -70,14 +66,12 @@ public class OnDemandController {
                 return;
             }
             System.out.println("outputPath"+outputPath);
-            // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
             archive.extract(absolutePath, outputPath);// Adjust the output path as needed
             System.out.println("selectedPath"+selectedPath);
             txtFile =archive.getTextFeild();
             addFileRecords(txtFile);
 
-//            extractedFileController.initialize();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ondemandextracted.fxml"));
             try {
@@ -110,10 +104,10 @@ public class OnDemandController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("preview.fxml"));
         try {
             Parent newContent = loader.load();
-//            PreviewController previewController = loader.getController();
-//            previewController.setFilePath(selectedFileName); // Pass the selected file name
             ondemandview.getChildren().setAll(newContent);
-        } catch (IOException e) {
+
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }

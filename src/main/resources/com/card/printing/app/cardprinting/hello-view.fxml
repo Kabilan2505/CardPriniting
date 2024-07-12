@@ -18,19 +18,6 @@
             </children>
         </VBox>
     </top>
-<!--    <left>-->
-<!--        <VBox prefWidth="250" spacing="10" style="-fx-background-color: #ADD8E6;" xmlns:fx="http://javafx.com/fxml/1">-->
-<!--            <padding>-->
-<!--                <Insets bottom="20" left="20" right="20" top="20" />-->
-<!--            </padding>-->
-<!--            <children>-->
-<!--                <Button fx:id="batchButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Batch" />-->
-<!--                <Button fx:id="onDemandButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="On Demand" />-->
-<!--                <Button fx:id="qualityButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Quality" />-->
-<!--                <Button fx:id="reportButton" onAction="#handleButtonClick" prefHeight="40" prefWidth="250" style="-fx-font-size: 16px;" text="Report" />-->
-<!--            </children>-->
-<!--        </VBox>-->
-<!--    </left>-->
     <left>
         <AnchorPane prefHeight="400.0" prefWidth="230.0" style="-fx-background-color: #1f4380;" BorderPane.alignment="CENTER">
             <children>

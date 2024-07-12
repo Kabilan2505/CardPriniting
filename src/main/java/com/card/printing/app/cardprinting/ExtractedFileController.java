@@ -34,8 +34,6 @@ public class ExtractedFileController {
     @FXML
     public ListView<String> textlistview;
 
-    public VBox textview;
-
     @FXML
     public HBox hBox;
 
@@ -46,17 +44,12 @@ public class ExtractedFileController {
             // Clear previous items
             System.out.println("txtFiles -- true "+txtFiles);
             System.out.println("txtFiles -- true -- getItem  "+textlistview.getItems());
-//            textlistview.getItems().clear();
-            // Add file names to the ListView
             for (String file : txtFiles) {
                 System.out.println("txtFiles -- true -- loop "+file);
                 textlistview.getItems().add(file);
-
-//                textlistview.getItems().addAll(txtFiles);
                 textlistview.setStyle("-fx-font-size: 20px");
             }
         } else {
-//            System.err.println("Failed to read files from the folder: " + folderPath);
         }
         System.out.println("txtFiles -- false "+textlistview);
     }
@@ -69,21 +62,12 @@ public class ExtractedFileController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
         try {
             Parent newContent = loader.load();
-//            PreviewController previewController = loader.getController();
-//            ExtractedFileController previewController1 = loader.getController();
-
-        setFilePathSelectedFile(selectedFileName); // Pass the selected file name
-//            previewController1.setFilePath(selectedFileName); // Pass the selected file name
-//            textview.getChildren().setAll(newContent);
+        setFilePathSelectedFile(selectedFileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-//     ____________________________
-
-
-    private static final Logger log = LoggerFactory.getLogger(ExtractedFileController.class);
     public ImageView colorphoto;
     public Label lastname;
     public Label firstname;
@@ -107,31 +91,27 @@ public class ExtractedFileController {
 
 
     public void setFilePathSelectedFile(String selectedFileName) {
-        String fileNameWithoutExtension = selectedFileName.substring(0, selectedFileName.lastIndexOf('.'));
+
         ArchiveExtractor archiveExtractor = new ArchiveExtractor();
+
         List<String> outputPath = archiveExtractor.getOutputPath();
-        System.out.println("outUI" + outputPath);
-        System.out.println("outUI" + outputPath.get(0));
-//        File file = new File("E:\\output\\unzip\\naveen", selectedFileName);
         File file = new File(PathDto.path, selectedFileName);
-        System.out.println("Absolute Path " + file.getAbsolutePath());
-        System.out.println("filedecrypt" + file);
-//        file.setText(selectedFileName);
-//        archiveExtractor.decryptPCN("E:\\output\\unzip\\12358\\12358\\12358.txt");
+
         ResidentDetails res = archiveExtractor.decryptTextFile(file);
-        System.out.println("First Name " + res.getFirstname());
+
         lastname.setText(res.getLastname());
         firstname.setText(res.getFirstname());
         middlename.setText(res.getMiddlename());
         dob.setText(res.getBirthdate());
+
         InputStream is=new ByteArrayInputStream(res.getImg());
         Image imgae=new Image(is);
         System.out.println(res);
         colorphoto.setImage(imgae);
+
         Image blackNwhite=convertToGrayscale(imgae);
         bwphoto.setImage(blackNwhite);
         id.setText(res.getId());
-
 
 
         creationDate.setText(res.getCreationDate());

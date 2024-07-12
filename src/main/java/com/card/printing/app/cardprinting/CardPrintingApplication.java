@@ -17,7 +17,7 @@ public class CardPrintingApplication extends Application {
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         String css=this.getClass().getResource("Style.css").toExternalForm();
         scene.getStylesheets().add(css);
-//        stage.setTitle("Hello!");
+        stage.setTitle("Print Card");
         stage.setScene(scene);
 //        stage.setFullScreen(true);
         stage.show();

@@ -24,11 +24,6 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    @FXML
-    private Button signInButton;
-
-    @FXML
-    private BorderPane borderPane;
 
     @FXML
     private ImageView loginImage;
@@ -54,27 +49,11 @@ public class LoginController {
         if (username.equals("superadmin") && password.equals("superadmin")) {
             showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, " + username + "!");
 
-            // Load the new FXML file
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
             BorderPane sidebarRoot = loader.load();
             Scene currentScene = usernameField.getScene();
             currentScene.setRoot(sidebarRoot);
-
-//                CardPrintingApplication c = new CardPrintingApplication();
-//                c.switchToMainScene();
-
-
-              /*  // Create a new stage for the sidebar
-                Stage sidebarStage = new Stage();
-                sidebarStage.setScene(new Scene(sidebarRoot));
-                sidebarStage.show();*/
-
-
-            // Optionally, close the login window
-//                Stage loginStage = (Stage) rootPane.getScene().getWindow();
-//                loginStage.close();
-
 
         } else {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
@@ -82,7 +61,6 @@ public class LoginController {
     }
 
     private boolean authenticate(String username, String password) {
-        // Replace with your actual authentication logic
         return "user".equals(username) && "pass".equals(password);
     }
 

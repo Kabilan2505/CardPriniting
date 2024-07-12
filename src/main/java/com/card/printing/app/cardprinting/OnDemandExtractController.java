@@ -85,33 +85,23 @@ import java.io.InputStream;
 import java.util.List;
 
 public class OnDemandExtractController {
-
     @FXML
     public ListView<String> textlistview;
-
-    public VBox textview;
 
     @FXML
     public HBox hBox;
 
-
     public void setFilePath(String selected, List<String> txtFiles) {
         System.out.println("textFiles"+txtFiles);
         if (txtFiles != null) {
-            // Clear previous items
             System.out.println("txtFiles -- true "+txtFiles);
             System.out.println("txtFiles -- true -- getItem  "+textlistview.getItems());
-//            textlistview.getItems().clear();
-            // Add file names to the ListView
             for (String file : txtFiles) {
                 System.out.println("txtFiles -- true -- loop "+file);
                 textlistview.getItems().add(file);
-
-//                textlistview.getItems().addAll(txtFiles);
                 textlistview.setStyle("-fx-font-size: 20px");
             }
         } else {
-//            System.err.println("Failed to read files from the folder: " + folderPath);
         }
         System.out.println("txtFiles -- false "+textlistview);
     }
@@ -122,20 +112,9 @@ public class OnDemandExtractController {
         System.out.println(" preview "+selectedFileName);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
-        try {
-            Parent newContent = loader.load();
-//            PreviewController previewController = loader.getController();
-//            ExtractedFileController previewController1 = loader.getController();
-
-            setFilePathSelectedFile(selectedFileName); // Pass the selected file name
-//            previewController1.setFilePath(selectedFileName); // Pass the selected file name
-//            textview.getChildren().setAll(newContent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        setFilePathSelectedFile(selectedFileName); // Pass the selected file name
     }
 
-//     ____________________________
 
 
     private static final Logger log = LoggerFactory.getLogger(com.card.printing.app.cardprinting.ExtractedFileController.class);

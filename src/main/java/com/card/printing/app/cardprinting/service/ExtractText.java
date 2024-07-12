@@ -11,11 +11,6 @@ import java.nio.file.Paths;
 
 @Service
 public class ExtractText {
-
-   /* public void updateStatus(String zipFilePath, String externalTxt) {
-
-    }*/
-
     Logger log = LoggerFactory.getLogger(ExtractText.class);
 
     public static void checkAndUpdateFile(String inputFilePath, String folderPath, String outputFilePath) throws IOException {

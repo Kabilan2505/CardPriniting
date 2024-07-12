@@ -101,10 +101,4 @@ public class FetchPCN {
         dir.delete();
     }
 
-
-
-    /*public String printCards(){
-        DiscoveredPrinter  discoveredPrinter = discoverPrinter();
-        return null;
-    }*/
 }

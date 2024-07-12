@@ -95,7 +95,6 @@ public class SidebarController implements Initializable {
             bp.setCenter(root);
         } catch (IOException e) {
             e.printStackTrace();
-            // Optionally, you can add some error handling here, such as showing an alert to the user.
         }
     }
 
@@ -106,13 +105,6 @@ public class SidebarController implements Initializable {
           Parent root = loader.load();
             setCenterContent(root);
             System.out.println(root);
-
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -125,13 +117,6 @@ public class SidebarController implements Initializable {
             Parent root = loader.load();
             setCenterContent(root);
             System.out.println(root);
-
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -145,17 +130,10 @@ public class SidebarController implements Initializable {
             setCenterContent(root);
             System.out.println(root);
 
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Add additional methods as needed to handle events or data
 }
 

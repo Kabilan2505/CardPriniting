@@ -33,14 +33,6 @@ public class HelloController {
         @FXML
         private Button qualityButton;
 
-        @FXML
-        private Button reportButton;
-
-        @FXML
-        private Label contentLabel;
-
-        @FXML
-        private VBox vBox;
 
     private void setCenterContent(Parent root) {
         borderpane.setCenter(root);
@@ -89,34 +81,16 @@ public class HelloController {
         }
 
         private void handleBatchButton() {
-//            ChoiceBox<String> choiceBox = new ChoiceBox<>();
-//            choiceBox.getItems().addAll("Option 1", "Option 2", "Option 3", "Option 4", "Option 5");
-//
-//            // Handle selection changes (optional)
-//            choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                System.out.println("Selected item: " + newValue);
-//            });
-//
-//            ((BorderPane) batchButton.getScene().getRoot()).setCenter(choiceBox);
-
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("batch.fxml"));
             Parent root = loader.load();
             setCenterContent(root);
             System.out.println("batch");
 
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
         }
-
-
 
     private void handleOnDemandButton() {
         try {
@@ -124,15 +98,6 @@ public class HelloController {
             Parent root = loader.load();
             setCenterContent(root);
             System.out.println("Demand");
-
-
-
-            // Create a new stage for the batch view
-
-            // Optionally, you can close the current stage (if needed)
-            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            // currentStage.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -144,12 +109,6 @@ public class HelloController {
                 Parent root = loader.load();
                 setCenterContent(root);
                 System.out.println("quality");
-
-                // Create a new stage for the batch view
-
-                // Optionally, you can close the current stage (if needed)
-                // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                // currentStage.close();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -163,76 +122,8 @@ public class HelloController {
                 setCenterContent(root);
                 System.out.println(root);
 
-                // Create a new stage for the batch view
-
-                // Optionally, you can close the current stage (if needed)
-                // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                // currentStage.close();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
-
-//    public void handleBatch(ActionEvent actionEvent) {
-//            ha
-//        try {
-//            System.out.println(actionEvent);
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("batch.fxml"));
-//            Parent root = loader.load();
-//            setCenterContent(root);
-//            System.out.println(root);
-//
-//            // Create a new stage for the batch view
-//
-//            // Optionally, you can close the current stage (if needed)
-//            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//            // currentStage.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public void handleOnDemandButton(ActionEvent actionEvent) {
-//        try {
-//            System.out.println(actionEvent);
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("onDemand.fxml"));
-//            Parent root = loader.load();
-//            setCenterContent(root);
-//            System.out.println(root);
-//
-//            // Create a new stage for the batch view
-//
-//            // Optionally, you can close the current stage (if needed)
-//            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//            // currentStage.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void handleQualityButton(ActionEvent actionEvent) {
-//        try {
-//            System.out.println(actionEvent);
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("quality.fxml"));
-//            Parent root = loader.load();
-//            setCenterContent(root);
-//            System.out.println(root);
-//
-//            // Create a new stage for the batch view
-//
-//            // Optionally, you can close the current stage (if needed)
-//            // Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//            // currentStage.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
 }

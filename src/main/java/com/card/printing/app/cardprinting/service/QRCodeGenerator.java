@@ -29,12 +29,6 @@ public class QRCodeGenerator {
 
                 BitMatrix bitMatrix = qrCodeWriter.encode(img, BarcodeFormat.QR_CODE,150,200,hints);
 
-//                MatrixToImageWriter.writeToPath(bitMatrix,"png", Paths.get(qrFile));
-
-//                BitMatrix matrix = new MultiFormatWriter().encode(new String("Naveen Bot".getBytes("UTF-8"), "UTF-8"), BarcodeFormat.QR_CODE, 400, 400);
-//                MatrixToImageWriter.writeToFile(matrix, qrFile.substring(qrFile.lastIndexOf('.') + 1), new File(qrFile));
-
-//                BitMatrix bitMatrix = qrCodeWriter.encode(img, BarcodeFormat.QR_CODE, 700, 700, hints);
                 BufferedImage qrImage = new BufferedImage(bitMatrix.getWidth(), bitMatrix.getHeight(), BufferedImage.TYPE_INT_RGB);
                 qrImage.createGraphics();
 

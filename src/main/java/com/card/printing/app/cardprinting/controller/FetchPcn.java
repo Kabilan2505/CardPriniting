@@ -26,16 +26,11 @@ public class FetchPcn {
 
     @GetMapping("/PRINT")
     public String printCards(){
-//        return pcn.printCards();
-//        ZebraPrinter printer = new ZebraPrinter();
         return null;
     }
 
     @PostMapping("/extract")
     public void extractZipOrRar(@RequestBody Request request) throws FileNotFoundException {
-//        String zipFilePath = "D:/Suthan/Zebra/card/input";
-//        String extractingFilePath = "D:/Suthan/Zebra/card/output";
-//        System.out.println(" Req "+ request.zipFilePath + " output " + request.getExtracingFilePath());
         extractor.extract(request.zipFilePath, request.getExtracingFilePath());
     }
 
@@ -55,8 +50,6 @@ public class FetchPcn {
         String fileName = "pcn.txt";
 
         String pathOutput = "D:/Suthan/Zebra/card/output/pcn.txt";
-
-//        Path path = Paths.get(externalTxt,fileName);
 
         extractText.checkAndUpdateFile(externalTxt,zipFilePath,pathOutput);
     }
