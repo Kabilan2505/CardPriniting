@@ -15,4 +15,30 @@
     -fx-background-color: #6666cc;
 }
 
+.border{
+    -fx-border-width: 4px;
+    -fx-border-color: red;
+}
 
+.custom-list-view{
+
+    -fx-max-height: 50%;
+    -fx-pref-width: 40%;
+}
+
+.font-size-button{
+
+    -fx-font-size: 14px;
+    -fx-fo-fx-background-color: #2196F3;
+    -fx-pref-width: 150px;
+
+}
+
+/*.Hbox-layout {*/
+
+/*    -fx-pref-width: 100%;*/
+/*    -fx-pref-height: 100%;*/
+/*    -fx-min-height: 100%;*/
+/*    -fx-min-width: 100%;*/
+
+/*}*/

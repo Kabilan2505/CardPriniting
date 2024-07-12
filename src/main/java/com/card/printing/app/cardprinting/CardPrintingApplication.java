@@ -18,6 +18,7 @@ public class CardPrintingApplication extends Application {
         scene.getStylesheets().add(css);
 //        stage.setTitle("Hello!");
         stage.setScene(scene);
+//        stage.setFullScreen(true);
         stage.show();
     }
 

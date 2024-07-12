@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.geometry.Insets?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.LoginController">
+<BorderPane maxHeight="-Infinity"  maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.LoginController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="361.0" style="-fx-background-color: #1f4380;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="loginImage" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
-                       fitWidth="300.0" fitHeight="300.0" pickOnBounds="true" preserveRatio="true"/>
+            <ImageView fx:id="loginImage" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
          <padding>
-            <Insets top="50.0" right="100.0" bottom="100.0" left="50.0"/>
+            <Insets bottom="100.0" left="50.0" right="100.0" top="50.0" />
          </padding>
       </AnchorPane>
    </left>
@@ -23,16 +22,20 @@
          <children>
             <Pane prefHeight="600.0" prefWidth="452.0">
                <children>
-                  <Pane layoutX="80.0" layoutY="108.0" prefHeight="303.0" prefWidth="289.0">
+                  <Pane layoutX="35.0" layoutY="108.0" prefHeight="303.0" prefWidth="311.0">
                      <children>
                         <TextField fx:id="usernameField" layoutX="5.0" layoutY="84.0" prefHeight="35.0" prefWidth="245.0" promptText="username" text="superadmin" />
                         <PasswordField fx:id="passwordField" layoutX="5.0" layoutY="161.0" prefHeight="35.0" prefWidth="245.0" promptText="password" text="superadmin" />
-                        <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #1f4380;" text="Sign in" textFill="#eeecec" />
-                        <Label layoutX="5.0" layoutY="9.0" prefHeight="31.0" prefWidth="81.0" text="Sign in">
+                        <Button onAction="#handleLoginButtonAction" layoutX="100.0" layoutY="242.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 150px;" text="Login" textFill="#cdcbcb">
                            <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
+                              <Font size="14.0" />
+                           </font></Button>
+<!--                        <Button layoutX="126.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #1f4380;" text="Sign in" textFill="#eeecec" />-->
+<!--                        <Label layoutX="5.0" layoutY="9.0" prefHeight="31.0" prefWidth="81.0" text="Sign in">-->
+<!--                           <font>-->
+<!--                              <Font name="System Bold" size="21.0" />-->
+<!--                           </font>-->
+<!--                        </Label>-->
                      </children>
                   </Pane>
                </children>

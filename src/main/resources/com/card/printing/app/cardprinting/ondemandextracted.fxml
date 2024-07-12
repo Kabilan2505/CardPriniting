@@ -1,24 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="onedemandtextview" alignment="CENTER" maxHeight="552.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="552.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.OnDemandExtractController">
-    <BorderPane>
-        <center>
+<HBox fx:id="hBox" alignment="CENTER" maxHeight="552.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="552.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.OnDemandExtractController">
+    <BorderPane prefHeight="552.0" prefWidth="198.0">
+        <left>
 
+<!--            <ScrollPane  prefHeight="552.0" prefWidth="800.0" VBox.vgrow="ALWAYS">-->
             <ScrollPane prefHeight="462.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                 <content>
-                    <ListView fx:id="ondemandtextlistview" prefHeight="473.0" prefWidth="598.0" VBox.vgrow="ALWAYS" styleClass="custom-list-view" />
+                    <ListView fx:id="textlistview" prefHeight="552.0" prefWidth="800.0" VBox.vgrow="ALWAYS" />
                 </content>
             </ScrollPane>
-        </center>
+
+        </left>
         <right>
-            <VBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 20;">
-                <Button onAction="#previewText1" text="Preview" style="-fx-min-width: 150px; -fx-background-color: #1f4380; -fx-text-fill: white;" />
+            <VBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 20;">
+                <Button onAction="#previewText" style="-fx-min-width: 150px; -fx-background-color: #2196F3; -fx-text-fill: white;" text="Preview" textFill="#cdcbcb">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Button>
             </VBox>
         </right>
     </BorderPane>
 
-</VBox>
+    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">  <!-- fx:controller="com.card.printing.app.cardprinting.ExtractedFileController" -->
+        <children>
+            <AnchorPane layoutX="90.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="456.0" style="-fx-background-color: #00000; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171">
+                <children>
+                    <Label alignment="CENTER" layoutX="113.0" layoutY="6.0" prefHeight="17.0" prefWidth="208.0" text="REPUBLIKA  NG  PILIPINAS">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="154.0" layoutY="21.0" prefHeight="15.0" prefWidth="125.0" text="Republic of the philipians">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label alignment="CENTER" layoutX="112.0" layoutY="33.0" prefHeight="17.0" prefWidth="208.0" text="PAMBASANG PAGAKAKAILANLAN">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="148.0" layoutY="48.0" prefHeight="16.0" prefWidth="136.0" text="Philipine Identification Card">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="172.0" layoutY="78.0" prefHeight="16.0" prefWidth="136.0" text="Apelyido / Last Name">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lastname" contentDisplay="CENTER" layoutX="172.0" layoutY="94.0" prefHeight="16.0" prefWidth="136.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="172.0" layoutY="122.0" prefHeight="16.0" prefWidth="174.0" text="Mga Pangalan / Given Name">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="firstname" contentDisplay="CENTER" layoutX="172.0" layoutY="138.0" prefHeight="16.0" prefWidth="136.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="172.0" layoutY="162.0" prefHeight="16.0" prefWidth="185.0" text="Gitnang Apelyido / Middle Name">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="middlename" contentDisplay="CENTER" layoutX="172.0" layoutY="178.0" prefHeight="16.0" prefWidth="136.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="172.0" layoutY="200.0" prefHeight="16.0" prefWidth="216.0" text="Petsa ng Kapanganakan / Date of Birth">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="dob" contentDisplay="CENTER" layoutX="172.0" layoutY="216.0" prefHeight="16.0" prefWidth="208.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="20.0" layoutY="224.0" prefHeight="16.0" prefWidth="136.0" text="Tirahan / Address">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label contentDisplay="CENTER" layoutX="21.0" layoutY="240.0" prefHeight="16.0" prefWidth="270.0" text="APELYIDO/FIRSTNAME">
+                        <font>
+                            <Font name="System Bold" size="10.0" />
+                        </font>
+                    </Label>
+                    <ImageView fx:id="colorphoto" fitHeight="125.0" fitWidth="109.0" layoutX="21.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+                    <ImageView fx:id="bwphoto" fitHeight="43.0" fitWidth="37.0" layoutX="127.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+                    <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="31.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../Image/nationalLogo.jpg" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="92.0" fitWidth="86.0" layoutX="357.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../Image/image2.png" />
+
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="60.0" fitWidth="62.0" layoutX="386.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../Image/PSALOGO.png" />
+                        </image>
+                    </ImageView>
+                    <Label fx:id="id1" layoutX="11.0" layoutY="72.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX" />
+                </children>
+            </AnchorPane>
+        </children>
+
+        <children>
+            <AnchorPane layoutX="92.0" layoutY="297.0" prefHeight="264.0" prefWidth="455.0" style="-fx-background-color: #ccccc; -fx-border-radius: 15; -fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+                <children>
+
+                    <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="164.0" text="Petsa ng Paglikha / creation date">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="creationDate" layoutX="11.0" layoutY="31.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="11.0" layoutY="56.0" prefHeight="17.0" prefWidth="123.0" text="kasarian / sex">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="sex" layoutX="11.0" layoutY="73.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="13.0" layoutY="94.0" prefHeight="17.0" prefWidth="149.0" text="grupo ng dugo / Blood Typegrupo ng dugo / Blood Type">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="bloodtype" layoutX="11.0" layoutY="115.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="10.0" layoutY="135.0" prefHeight="17.0" prefWidth="139.0" text="katayuan sa / Marital status">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="maritalstatus" layoutX="11.0" layoutY="152.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="11.0" layoutY="174.0" prefHeight="17.0" prefWidth="164.0" text="Lugar ng / Place of Birth">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="birthprovince" layoutX="11.0" layoutY="193.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Label>
+
+                    <ImageView fx:id="qrcode" fitHeight="159.0" fitWidth="169.0" layoutX="279.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label fx:id="id" contentDisplay="RIGHT" layoutX="313.0" layoutY="189.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX" />
+
+                </children>
+            </AnchorPane>
+        </children>
+
+
+    </Pane>
+
+</HBox>

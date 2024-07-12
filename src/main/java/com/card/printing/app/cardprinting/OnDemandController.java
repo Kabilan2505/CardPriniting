@@ -16,15 +16,17 @@ import java.util.List;
 
 public class OnDemandController {
 
-
+    @FXML
     public VBox ondemandview;
+
+    @FXML
     public ListView<String> ondemandlistView;
 
     String outputPath="E:/output";
 
     List<String> txtFile;
 
-    String folderPath = "E:\\ondemandPrinting\\";
+    String folderPath = "E:\\ondemand\\";
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
@@ -42,7 +44,9 @@ public class OnDemandController {
             // Add file names to the ListView
             for (File file : files) {
                 if (file.isFile()) {
+                    System.out.println("extracted file" + file.getName());
                     ondemandlistView.getItems().add(file.getName());
+                    ondemandlistView.setStyle("-fx-font-size: 20px");
                 }
             }
         } else {
@@ -106,8 +110,8 @@ public class OnDemandController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("preview.fxml"));
         try {
             Parent newContent = loader.load();
-            PreviewController previewController = loader.getController();
-            previewController.setFilePath(selectedFileName); // Pass the selected file name
+//            PreviewController previewController = loader.getController();
+//            previewController.setFilePath(selectedFileName); // Pass the selected file name
             ondemandview.getChildren().setAll(newContent);
         } catch (IOException e) {
             e.printStackTrace();
