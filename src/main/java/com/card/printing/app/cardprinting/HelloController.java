@@ -125,6 +125,8 @@ public class HelloController {
             setCenterContent(root);
             System.out.println("Demand");
 
+
+
             // Create a new stage for the batch view
 
             // Optionally, you can close the current stage (if needed)

@@ -1,5 +1,6 @@
 package com.card.printing.app.cardprinting;
 
+import com.card.printing.app.cardprinting.dto.PathDto;
 import com.card.printing.app.cardprinting.dto.ResidentDetails;
 import com.card.printing.app.cardprinting.service.ArchiveExtractor;
 import javafx.event.ActionEvent;
@@ -33,6 +34,7 @@ public class PreviewController {
     public Label creationDate;
     public ImageView qrcode;
     public Label id1;
+    public ImageView bwphoto;
     @FXML
     private AnchorPane preview;
 
@@ -46,7 +48,8 @@ public class PreviewController {
         List<String> outputPath = archiveExtractor.getOutputPath();
         System.out.println("outUI" + outputPath);
         System.out.println("outUI" + outputPath.get(0));
-        File file = new File("E:\\output\\unzip\\outdata", selectedFileName);
+//        File file = new File("E:\\output\\unzip\\naveen", selectedFileName);
+        File file = new File(PathDto.path, selectedFileName);
         System.out.println("Absolute Path " + file.getAbsolutePath());
         System.out.println("filedecrypt" + file);
 //        file.setText(selectedFileName);
@@ -59,8 +62,9 @@ public class PreviewController {
         dob.setText(res.getBirthdate());
         InputStream is=new ByteArrayInputStream(res.getImg());
         Image imgae=new Image(is);
+        System.out.println(res);
         colorphoto.setImage(imgae);
-        id.setText(res.getId());
+//        id.setText(res.getId());
 
 
         creationDate.setText(res.getCreationDate());

@@ -8,6 +8,7 @@ import java.util.*;
 
 import com.card.printing.app.cardprinting.common.EncryptData;
 import com.card.printing.app.cardprinting.common.InitConstants;
+import com.card.printing.app.cardprinting.dto.PathDto;
 import com.card.printing.app.cardprinting.dto.ResidentDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.junrar.Archive;
@@ -41,7 +42,10 @@ public class ArchiveExtractor {
    /* @Autowired
     ImageCompressor imageCompressor;*/
 
+
+
     public void extract(String source , String output ){
+            String path = null;
             File file = new File(source);
             if(file.isFile()){
                 String fileName = file.getName().toLowerCase();
@@ -92,14 +96,16 @@ public class ArchiveExtractor {
    }
 
     private void extractZip(File file, String outputDir , File txtFilePath) {
+
+        String outputPath = Paths.get(outputDir , file.getName().replace(".zip","")).toString();
         try {
-            String outputPath = Paths.get(outputDir , file.getName().replace(".zip","")).toString();
             System.out.println("outputPath"+outputPath);
             File outputFile = new File(outputPath);
             outputFile.mkdirs();
 //            moveZiporRarFile(txtFilePath , outputPath);
             ZipFile zipFile = new ZipFile(file);
             zipFile.extractAll(outputPath);
+            PathDto.path=outputPath;
             File n = new File(outputPath);
             File[] fille = n.listFiles();
             for(File u :fille ){

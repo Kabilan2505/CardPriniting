@@ -83,8 +83,8 @@ public class FileListController{
             // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
             archive.extract(selectedPath, outputPath);// Adjust the output path as needed
-            System.out.println("selectedPath"+selectedPath);
-            txtFile =archive.getTextFeild();
+//            System.out.println("selectedPath"+path);
+            txtFile = archive.getTextFeild();
             addFileRecords(txtFile);
 
 //            extractedFileController.initialize();
@@ -103,7 +103,7 @@ public class FileListController{
         }
 
     }
-//    public List<String> textFiles(){
+    //    public List<String> textFiles(){
 //        return txtFile;
 //    }
     public void addFileRecords(List<String> fileNames) {
