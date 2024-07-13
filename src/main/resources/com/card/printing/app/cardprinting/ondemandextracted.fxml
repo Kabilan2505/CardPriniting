@@ -21,6 +21,11 @@
                     <font>
                         <Font size="14.0" />
                     </font></Button>
+            <Button layoutX="30.0" layoutY="271.0" style="-fx-min-width: 150px; -fx-background-color: #2196F3; -fx-text-fill: white;" text="Print" textFill="#cdcbcb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
             </VBox>
         </right>
     </BorderPane>
@@ -94,12 +99,14 @@
                             <Font size="11.0" />
                         </font>
                     </Label>
-                    <Label contentDisplay="CENTER" layoutX="21.0" layoutY="240.0" prefHeight="16.0" prefWidth="270.0" text="APELYIDO/FIRSTNAME">
+                    <Label fx:id="address" contentDisplay="CENTER" layoutX="21.0" layoutY="240.0" prefHeight="16.0" prefWidth="270.0" text="XXXXXXXX">
                         <font>
                             <Font name="System Bold" size="10.0" />
                         </font>
                     </Label>
-                    <ImageView fx:id="colorphoto" fitHeight="125.0" fitWidth="109.0" layoutX="21.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+                    <ImageView fx:id="colorphoto" fitHeight="125.0" fitWidth="109.0" layoutX="21.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../../../Image/sample_color_photo_2.png" />
+                    </ImageView>
                     <ImageView fx:id="bwphoto" fitHeight="43.0" fitWidth="37.0" layoutX="127.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
                     <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="31.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -117,7 +124,7 @@
                             <Image url="@../../../../../Image/PSALOGO.png" />
                         </image>
                     </ImageView>
-                    <Label fx:id="id1" layoutX="11.0" layoutY="72.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX" />
+                    <Label fx:id="id1" layoutX="11.0" layoutY="72.0" prefHeight="17.0" prefWidth="123.0" text="XXXX-XXXX-XXXX-XXXX" />
                 </children>
             </AnchorPane>
         </children>
@@ -177,8 +184,10 @@
                         </font>
                     </Label>
 
-                    <ImageView fx:id="qrcode" fitHeight="159.0" fitWidth="169.0" layoutX="279.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                    <Label fx:id="id" contentDisplay="RIGHT" layoutX="313.0" layoutY="189.0" prefHeight="17.0" prefWidth="123.0" text="XXXXXXXX" />
+                    <ImageView fx:id="qrcode" fitHeight="159.0" fitWidth="169.0" layoutX="279.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../../../Image/sample_QR.png" />
+                    </ImageView>
+                    <Label fx:id="id" contentDisplay="RIGHT" layoutX="313.0" layoutY="189.0" prefHeight="17.0" prefWidth="123.0" text="XXXX-XXXX-XXXX-XXXX" />
 
                 </children>
             </AnchorPane>

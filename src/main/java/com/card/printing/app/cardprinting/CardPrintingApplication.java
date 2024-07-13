@@ -20,6 +20,7 @@ public class CardPrintingApplication extends Application {
         stage.setTitle("Print Card");
         stage.setScene(scene);
 //        stage.setFullScreen(true);
+        stage.setMaximized(true);
         stage.show();
     }
 

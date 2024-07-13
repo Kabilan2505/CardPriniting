@@ -4,11 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="164.0" prefWidth="413.0" style="-fx-border-radius: 30;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.QualityController">
+<AnchorPane fx:id="dialogMain" prefHeight="168.0" prefWidth="451.0" style="-fx-border-radius: 4; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.PopupController">
    <children>
-      <DialogPane layoutX="21.0" layoutY="21.0" prefHeight="127.0" prefWidth="360.0" style="-fx-background-color: #00001; -fx-border-radius: 5; -fx-border-color: black;" />
-      <Label layoutX="86.0" layoutY="58.0" prefHeight="46.0" prefWidth="249.0" text="Your Request is Submitted...">
+      <DialogPane fx:id="dialog" layoutX="7.0" layoutY="8.0" prefHeight="151.0" prefWidth="436.0" style="-fx-border-radius: 4; -fx-border-width: 5;" />
+      <Label fx:id="popupMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="61.0" maxWidth="1.7976931348623157E308" prefHeight="46.0" text="popup message" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
          </font>

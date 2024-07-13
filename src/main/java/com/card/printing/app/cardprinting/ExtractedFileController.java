@@ -27,7 +27,11 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 public class ExtractedFileController {
 
@@ -114,11 +118,11 @@ public class ExtractedFileController {
 
         Image blackNwhite=convertToGrayscale(imgae);
         bwphoto.setImage(blackNwhite);
-        id.setText(res.getId());
-        address.setText(res.getPresentAddressLine1());
+        id.setText(res.getSplitedId());
+        address.setText(res.getPermanentAddressLine1());
 
 
-        creationDate.setText(res.getCreationDate());
+        creationDate.setText(dateSpliter(res.getCreationDate()));
         sex.setText(res.getSex());
         bloodtype.setText(res.getBloodtype());
         maritalstatus.setText(res.getMaritalstatus());
@@ -126,7 +130,7 @@ public class ExtractedFileController {
         InputStream is1=new ByteArrayInputStream(res.getQrImg());
         Image imgae1=new Image(is1);
         qrcode.setImage(imgae1);
-        id1.setText(res.getId());
+        id1.setText(res.getSplitedId());
     }
 
     public static Image convertToGrayscale(Image image) {
@@ -148,5 +152,19 @@ public class ExtractedFileController {
         return grayscaleImage;
     }
 
+    public String dateSpliter(String creationDate) {
 
-}
+        // Parse the input string to LocalDateTime
+        LocalDateTime dateTime = LocalDateTime.parse(creationDate, DateTimeFormatter.ISO_DATE_TIME);
+
+        // Get the month in full name using TextStyle
+        String monthName = dateTime.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+
+        // Format the date part as desired
+        String formattedDate = String.format("%d-%s-%d", dateTime.getYear(), monthName, dateTime.getDayOfMonth());
+
+       return formattedDate;
+    }
+
+    }
+

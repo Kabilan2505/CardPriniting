@@ -190,6 +190,7 @@ public class ArchiveExtractor {
                 details.setQrFaceImg(qrImg);
                 QRCodeGenerator qrCodeGenerator = new QRCodeGenerator();
                 details.setQrImg(qrCodeGenerator.createQR(encodeImageBase64(qrImg)));
+                details.setSplitedId(splitId(details.getId()));
                 details.setProcessStatus(true);
             } else {
                 System.out.println("File is empty");
@@ -203,6 +204,23 @@ public class ArchiveExtractor {
             return details;
         }
         return details;
+    }
+
+    public String splitId(String id){
+        System.out.println("Wants Split The Number : "+id);
+        String newId = "";
+        if(id == null || id.isEmpty()){
+            return null;
+        }
+        StringBuilder builder  = new StringBuilder();
+        for(int i=0; i<id.length(); i++){
+            builder.append(id.charAt(i));
+            if(((i+1) % 4 == 0) && i < id.length()-1 ){
+                builder.append('-');
+            }
+        }
+        System.out.println(builder);
+        return builder.toString();
     }
 
     public String encodeImageBase64(byte[] bytes) {

@@ -137,4 +137,7 @@ public class ResidentDetails {
     @JsonProperty("qrFaceImg")
     private byte[] qrFaceImg;
 
+    @JsonProperty("splitedId")
+    private String splitedId;
+
 }

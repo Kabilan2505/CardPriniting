@@ -64,6 +64,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -75,6 +76,8 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,7 +85,11 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 public class OnDemandExtractController {
     @FXML
@@ -90,6 +97,9 @@ public class OnDemandExtractController {
 
     @FXML
     public HBox hBox;
+
+    @FXML
+    public Label address;
 
     public void setFilePath(String selected, List<String> txtFiles) {
         System.out.println("textFiles"+txtFiles);
@@ -106,13 +116,25 @@ public class OnDemandExtractController {
         System.out.println("txtFiles -- false "+textlistview);
     }
     @FXML
-    public void previewText(ActionEvent actionEvent) {
+    public void previewText(ActionEvent actionEvent) throws IOException {
 
         String selectedFileName = textlistview.getSelectionModel().getSelectedItem();
-        System.out.println(" preview "+selectedFileName);
+//        System.out.println(selectedFileName);
+//        if (selectedFileName ==null){
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("popup.fxml"));
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(loader.load()));
+//            stage.initModality(Modality.APPLICATION_MODAL);
+//            PopupController popupController = loader.getController();
+//            popupController.popupMsg.setText("Please select the file");
+//            popupController.dialog.setStyle("-fx-border-color: green;");
+//
+//        }else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
+            System.out.println(" preview "+selectedFileName);
+            setFilePathSelectedFile(selectedFileName); // Pass the selected file name
+      //  }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
-        setFilePathSelectedFile(selectedFileName); // Pass the selected file name
     }
 
 
@@ -164,11 +186,12 @@ public class OnDemandExtractController {
         colorphoto.setImage(imgae);
         Image blackNwhite=convertToGrayscale(imgae);
         bwphoto.setImage(blackNwhite);
-        id.setText(res.getId());
+        id.setText(res.getSplitedId());
+        address.setText(res.getPermanentAddressLine1());
 
 
 
-        creationDate.setText(res.getCreationDate());
+        creationDate.setText(dateSpliter(res.getCreationDate()));
         sex.setText(res.getSex());
         bloodtype.setText(res.getBloodtype());
         maritalstatus.setText(res.getMaritalstatus());
@@ -176,7 +199,7 @@ public class OnDemandExtractController {
         InputStream is1=new ByteArrayInputStream(res.getQrImg());
         Image imgae1=new Image(is1);
         qrcode.setImage(imgae1);
-        id1.setText(res.getId());
+        id1.setText(res.getSplitedId());
     }
 
     public static Image convertToGrayscale(Image image) {
@@ -196,6 +219,20 @@ public class OnDemandExtractController {
         imageView.snapshot(null, grayscaleImage);
 
         return grayscaleImage;
+    }
+
+    public String dateSpliter(String creationDate) {
+
+        // Parse the input string to LocalDateTime
+        LocalDateTime dateTime = LocalDateTime.parse(creationDate, DateTimeFormatter.ISO_DATE_TIME);
+
+        // Get the month in full name using TextStyle
+        String monthName = dateTime.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+
+        // Format the date part as desired
+        String formattedDate = String.format("%d-%s-%d", dateTime.getYear(), monthName, dateTime.getDayOfMonth());
+
+        return formattedDate;
     }
 
 

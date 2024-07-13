@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderpane" prefHeight="665.0" prefWidth="779.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.HelloController">
+<BorderPane fx:id="borderpane" prefHeight="665.0" prefWidth="779.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.card.printing.app.cardprinting.HelloController">
     <top>
         <VBox prefHeight="130" style="-fx-background-color: #1f4380;" xmlns:fx="http://javafx.com/fxml/1">
             <padding>
@@ -68,18 +68,21 @@
             </children>
         </AnchorPane>
     </left>
-    <center >
+    <center>
         <VBox fx:id="vBox" prefHeight="405.0" prefWidth="577.0">
             <Label fx:id="contentLabel" style="-fx-font-size: 16px;" />
         </VBox>
     </center>
     <bottom>
-        <VBox fx:id="vbox" prefHeight="130" style="-fx-background-color: #D3D3D3;" xmlns:fx="http://javafx.com/fxml/1">
+        <VBox fx:id="vbox" alignment="CENTER" prefHeight="60" style="-fx-background-color: #D3D3D3;" xmlns:fx="http://javafx.com/fxml/1">
             <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
             <children>
-                <Label text="Footer" />
+                <Label prefHeight="32.0" prefWidth="150.0" style="-fx-text-fill: #db8a07" text="Madras Security Printers">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             </children>
         </VBox>
     </bottom>
