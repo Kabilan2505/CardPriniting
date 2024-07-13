@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +20,8 @@ import java.io.IOException;
 
 public class HelloController {
 
-        @FXML
+
+    @FXML
         private BorderPane borderpane;
 
         @FXML
@@ -32,6 +35,9 @@ public class HelloController {
 
         @FXML
         private Button qualityButton;
+
+        @FXML
+        public Button logoutButton;
 
 
     private void setCenterContent(Parent root) {
@@ -73,6 +79,9 @@ public class HelloController {
                     break;
                 case "reportButton":
                     handleReportButton();
+                    break;
+                case "logoutButton" :
+                    handleLogutButton();
                     break;
                 default:
                     System.out.println("Unknown button clicked");
@@ -126,4 +135,42 @@ public class HelloController {
                 e.printStackTrace();
             }
         }
+
+//        private void handleLogutButton(){
+//            try {
+//                Stage stage = new Stage();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login2.fxml"));
+//                Parent root = loader.load();
+//                Scene currentScene = batchButton.getScene();
+//                stage.setScene(currentScene);
+//                System.out.println(root);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+    @FXML
+    private void handleLogutButton() {
+
+        logoutButton.getScene().getWindow().hide();
+//   AnchorPane anchorPane=FXMLLoader.load(getClass().getResource("Login2.fxml"));
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login2.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 800, 600);
+            scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+            Stage primaryStage=new Stage();
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Login");
+//            primaryStage.setResizable(false);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//            CardPrintingApplication application = new CardPrintingApplication();
+//            application.logout(); // Redirect to the logout method in CardPrintingApplication
+
+    }
 }

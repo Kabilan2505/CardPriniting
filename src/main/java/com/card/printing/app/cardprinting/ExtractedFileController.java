@@ -37,6 +37,9 @@ public class ExtractedFileController {
     @FXML
     public HBox hBox;
 
+    @FXML
+    public Label address;
+
 
     public void setFilePath(String selected, List<String> txtFiles) {
         System.out.println("textFiles"+txtFiles);
@@ -112,6 +115,7 @@ public class ExtractedFileController {
         Image blackNwhite=convertToGrayscale(imgae);
         bwphoto.setImage(blackNwhite);
         id.setText(res.getId());
+        address.setText(res.getPresentAddressLine1());
 
 
         creationDate.setText(res.getCreationDate());
