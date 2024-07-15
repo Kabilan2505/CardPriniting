@@ -16,17 +16,15 @@ import java.util.List;
 
 public class OnDemandController {
 
-    @FXML
-    public VBox ondemandview;
 
-    @FXML
+    public VBox ondemandview;
     public ListView<String> ondemandlistView;
 
-    String outputPath="E:/output";
+    String outputPath="D:/output";
 
     List<String> txtFile;
 
-    String folderPath = "E:\\ondemand\\";
+    String folderPath = "D:\\ondemandPrinting\\";
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
@@ -44,9 +42,7 @@ public class OnDemandController {
             // Add file names to the ListView
             for (File file : files) {
                 if (file.isFile()) {
-                    System.out.println("extracted file" + file.getName());
                     ondemandlistView.getItems().add(file.getName());
-                    ondemandlistView.setStyle("-fx-font-size: 20px");
                 }
             }
         } else {
@@ -56,6 +52,10 @@ public class OnDemandController {
 
     @FXML
     public void ondemandUnZip(ActionEvent actionEvent) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("extracted-file.fxml"));
+//        Parent newContent = loader.load();
+//        batchView.getChildren().setAll(newContent);
+
         String selectedPath = ondemandlistView.getSelectionModel().getSelectedItem();
         String absolutePath = folderPath + selectedPath;
         System.out.println("selectedPath"+absolutePath);
@@ -66,12 +66,14 @@ public class OnDemandController {
                 return;
             }
             System.out.println("outputPath"+outputPath);
+            // Prepare request object
             ArchiveExtractor archive = new ArchiveExtractor();
             archive.extract(absolutePath, outputPath);// Adjust the output path as needed
             System.out.println("selectedPath"+selectedPath);
             txtFile =archive.getTextFeild();
             addFileRecords(txtFile);
 
+//            extractedFileController.initialize();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ondemandextracted.fxml"));
             try {
@@ -104,10 +106,10 @@ public class OnDemandController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("preview.fxml"));
         try {
             Parent newContent = loader.load();
+            PreviewController previewController = loader.getController();
+            previewController.setFilePath(selectedFileName); // Pass the selected file name
             ondemandview.getChildren().setAll(newContent);
-
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

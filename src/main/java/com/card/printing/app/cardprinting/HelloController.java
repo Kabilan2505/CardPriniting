@@ -20,8 +20,12 @@ import java.io.IOException;
 
 public class HelloController {
 
+        @FXML
+        public Button dashboardButton;
+        @FXML
+        public Button handoverButton;
 
-    @FXML
+        @FXML
         private BorderPane borderpane;
 
         @FXML
@@ -74,11 +78,17 @@ public class HelloController {
                 case "onDemandButton":
                     handleOnDemandButton();
                     break;
+                    case "dashboardButton":
+                    handleDashboardButton();
+                    break;
                 case "qualityButton":
                     handleQualityButton();
                     break;
                 case "reportButton":
                     handleReportButton();
+                    break;
+                case "handoverButton":
+                    handleHandoverButton();
                     break;
                 case "logoutButton" :
                     handleLogutButton();
@@ -89,7 +99,30 @@ public class HelloController {
             }
         }
 
-        private void handleBatchButton() {
+    private void handleHandoverButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("handover.fxml"));
+            Parent root = loader.load();
+            setCenterContent(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleDashboardButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+            Parent root = loader.load();
+            setCenterContent(root);
+            System.out.println("dashboard");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleBatchButton() {
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("batch.fxml"));
             Parent root = loader.load();

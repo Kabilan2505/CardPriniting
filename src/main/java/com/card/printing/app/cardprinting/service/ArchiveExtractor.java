@@ -1,7 +1,6 @@
 package com.card.printing.app.cardprinting.service;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.nio.file.*;
 import java.util.*;
 
@@ -19,7 +18,6 @@ import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

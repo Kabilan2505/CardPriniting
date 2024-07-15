@@ -18,7 +18,10 @@ import javafx.scene.layout.VBox;
 import org.springframework.core.io.FileSystemResource;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.List;
 
 
@@ -39,8 +42,8 @@ public class FileListController{
     @FXML
     public TableColumn<FileRecord, String> fileNameColumn;
 
-    String outputPath="E:/output";
-    String folderPath = "E:\\CardPrinting\\";
+    String outputPath="D:/output";
+    String folderPath = "D:\\CardPrinting\\";
 
     private final ObservableList<FileRecord> fileRecords = FXCollections.observableArrayList();
 
@@ -98,6 +101,38 @@ public class FileListController{
         for (String fileName : fileNames) {
             System.out.println(fileName);
             fileRecords.add(new FileRecord(fileName));
+        }
+    }
+
+    public void downloadZip(ActionEvent actionEvent) {
+        String selectedPath = listView.getSelectionModel().getSelectedItem();
+        String absolutePath = folderPath + selectedPath;
+        System.out.println("absolutePath naveen"+absolutePath);
+        System.out.println("selectedPath naveen"+selectedPath);
+        File sourceFile = new File(absolutePath);
+        String saveDir = "D:\\Downloaded Zip"; // Specify the directory where you want to save the file
+
+        // Ensure the directory exists
+        File saveDirFile = new File(saveDir);
+        if (!saveDirFile.exists()) {
+            saveDirFile.mkdirs();
+        }
+
+        // Construct the destination file path
+        File destinationFile = new File(saveDir, sourceFile.getName());
+
+        try {
+            copyFileUsingChannel(sourceFile, destinationFile);
+            System.out.println("File downloaded: " + destinationFile.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void copyFileUsingChannel(File source, File dest) throws IOException {
+        try (FileChannel sourceChannel = new FileInputStream(source).getChannel();
+             FileChannel destChannel = new FileOutputStream(dest).getChannel()) {
+            destChannel.transferFrom(sourceChannel, 0, sourceChannel.size());
         }
     }
 }

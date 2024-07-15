@@ -20,6 +20,9 @@ import java.io.InputStream;
 import java.util.List;
 
 public class PreviewController {
+    public void setFilePath(String selectedFileName) {
+
+    }
 
 
 //    public void setFilePath(String selectedFileName) {
